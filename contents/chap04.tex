@@ -1,0 +1,333 @@
+\chapter{实验结果与分析}
+
+\section{评价指标}
+
+\subsection{精度评价指标}
+评价目标检测模型精度的指标有交并比(IoU)、精度(Precision)、召回率(Recall)、平均精度(Average Precision, AP)及平均精度均值(mean Average Precision, mAP)等。
+
+IoU用来表示预测框的准确率，它在训练阶段反映的是标注框与预测框的重合程度。例如，用A表示预测目标框，用B表示真实目标框，IoU则是A、B两个框的交集与并集的比值。IoU值越大，代表A、B两个框重叠程度越高。IoU要搭配IoU阈值一起使用。IoU阈值默认被设置为0.5，当两框的IoU大于阈值时，则判断预测框预测正确。
+
+在深度学习中，将分类任务的预测结果分为以下四种，被称作混淆矩阵，见\ref{fig:matrix}：第一种是真正例(True Positive，TP)，即模型预测为正例，且实际标签也是正例，预测正确；第二种是假负例(False Negative，FN)，指模型预测为负例，但真实标签却是正例，预测错误；第三种是假正例(False Positive，FP)，表示模型将负例误判为正例，同样是预测错误；最后一种是真负例(True Negative，TN)，即模型预测为负例，同时实际标签也为负例，预测正确。这里的正例和负例其实只是针对某一类别而言的，针对A类而言，A类别就是正例，其他类别就是负例。精度(Precision)的定义如\ref{eq:precision}，该指标数值越大，表明误判为正例的数量(即FP值)越少，反映出模型预测结果中真正正例的占比更高，预测的准确性更好。Precision越高，误检越少。召回率(Recall)的定义如\ref{eq:recall}，其数值的越大，代表着漏判为负例的数量(即FN值)越少，说明模型对实际正例的捕捉能力更强，能够找到更多的正例样本。
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figs/chap04/matrix.png}
+    \caption{混淆矩阵}
+    \label{fig:matrix}
+  \end{figure}
+
+
+\begin{equation}
+    \begin{aligned}
+    Precision = \frac{TP}{TP + FP}\label{eq:precision}
+    \end{aligned}
+\end{equation}
+
+
+\begin{equation}
+    \begin{aligned}
+    Recall = \frac{TP}{TP + FN}\label{eq:recall}
+    \end{aligned}
+\end{equation}
+
+P-R曲线即为分别以Precision与Recall为坐标围成的曲线。如\ref{fig:pr}所示，这是本文实验产生的一个P-R曲线。平均精度(AP)通过计算各类别P-R曲线与坐标轴所围成区域的面积来衡量模型性能。从几何意义上讲，若模型的AP值越高，意味着其P-R曲线与坐标轴所围合的区域面积越大，直观反映出该模型在精度(Precision)与召回率(Recall)两个关键指标上的综合表现更好，在整体数据预测中能够同时实现较高的正例预测纯度与正例捕捉能力。平均精度均值(mAP)是对所有类别的AP求平均值，用于反映整个模型的准确率。在YOLO模型中，常见的mAP评价指标有mAP50和mAP50-95。mAP50为IoU阈值设为0.5时，所有类别的平均精度均值。mAP50-95为IoU阈值从0.5到0.95(间隔0.05递增)的多个严格标准下，分别计算mAP，再取平均值。
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figs/chap04/PR_curve.png}
+    \caption{PR曲线}
+    \label{fig:pr}
+  \end{figure}
+
+\subsection{速度评价指标}
+评价目标检测模型速度的指标有：每秒帧率(Frame Per Second，FPS)，即每秒内可以处理的图片数量，能够衡量模型的实时性，FPS越高，实时性越强。延迟(Latency)，表示单张图像从输入到输出结果的总耗时。FLOPs表示浮点运算量，它衡量了模型在进行一次前向传播(推理)过程中所执行的浮点运算次数，FLOPs越低，理论速度越快，但并不直接等于实际速度。
+
+\section{实验结果分析}
+\subsection{YOLOv11n}
+本文基于YOLOv11n训练了300个epoch，训练结果如\ref{fig:nresult}所示。从实验结果可知，模型的最高精度为96.7\%，最高召回率为96.6\%，mAP50为99.0\%，mAP50-95为94.1\%。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/chap04/n_results.png}
+    \caption{YOLOv11n训练结果}
+    \label{fig:nresult}
+\end{figure}
+
+基于YOLOv11n训练出的模型的混淆矩阵见\ref{fig:nmatrix}，模型对大部分目标的分类效果都不错，18个标签中有15个标签的判断准确率达到了97\%。对S07这一类别的分类效果较差，对其中33\%的数据都预测为了S10，仅有67\%的正确率。该模型的P-R曲线见\ref{fig:npr}，可以看出mAP@0.5为99.0\%。
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/chap04/n_confusion_matrix_normalized.png}
+    \caption{YOLOv11n混淆矩阵}
+    \label{fig:nmatrix}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figs/chap04/n_PR_curve.png}
+    \caption{YOLOv11nP-R曲线}
+    \label{fig:npr}
+\end{figure}
+
+\subsection{YOLOv11s}
+本文基于YOLOv11s训练了300个epoch，训练结果见\ref{fig:sresult}。该模型的最高精度为96.2\%，最高召回率为97.2\%，mAP50为99.0\%，mAP50-95为95.4\%。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/chap04/s_results.png}
+    \caption{YOLOv11s训练结果}
+    \label{fig:sresult}
+\end{figure}
+
+\ref{fig:smatrix}展示了该模型的混淆矩阵，可以看出模型对S01类别有6\%的误判，其中2\%预测为了S04，4\%预测为了S06。对S09类别有2\%的误判，预测成了S06，以及4\%的漏判，其他的类别的准确率都达到了97\%。YOLOv11s训练结果的P-R曲线如\ref{fig:spr}，该模型的mAP@0.5为99.0\%。
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/chap04/s_confusion_matrix_normalized.png}
+    \caption{YOLOv11s混淆矩阵}
+    \label{fig:smatrix}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figs/chap04/s_PR_curve.png}
+    \caption{YOLOv11sP-R曲线}
+    \label{fig:spr}
+\end{figure}
+
+\subsection{YOLOv11m}
+本文基于YOLOv11m训练了300个epoch，实验结果如\ref{fig:mresult}所示，该模型的最高精度为97.3\%，最高召回率为98.1\%，mAP50为99.1\%，mAP50-95为95.5\%。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/chap04/m_results.png}
+    \caption{YOLOv11m训练结果}
+    \label{fig:mresult}
+\end{figure}
+
+混淆矩阵如\ref{fig:mmatrix}所示，模型对S04类别有4\%的漏判，对S9类别有6\%的漏判，其他类别的准确率都达到了97\%。P-R曲线为\ref{fig:mpr}，该模型的mAP@0.5为99.1\%。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/chap04/m_confusion_matrix_normalized.png}
+    \caption{YOLOv11m混淆矩阵}
+    \label{fig:mmatrix}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figs/chap04/m_PR_curve.png}
+    \caption{YOLOv11mP-R曲线}
+    \label{fig:mpr}
+\end{figure}
+
+\subsection{模型性能对比}
+本文基于YOLOv11三种不同的模型对摩托车驾乘人员头盔佩戴数据集进行了训练，\ref{tab:modelCompare}展示了各个模型在精度、召回率、mAP50、mAP50-95以及检测速度这五个方面的对比。
+
+三个模型的精度均在96\% 以上。其中，YOLOv11m的精度最高，为97.3\%。三个模型的召回率也都处于较高水平，都在96\%以上。YOLOv11m的召回率最高，为98.1\%。三个模型的mAP50值几乎一致，都在99\%附近，最大仅相差0.1\%，说明在IoU阈值为0.5时，它们对目标物体的检测效果都非常好。在mAP50-95指标上，YOLOv11m和YOLOv11s表现较好，分别为95.5\%和95.4\%，仅相差0.1\%，都要高于YOLOv11n的94.1\%，这表明在更严格的IoU阈值范围内，YOLOv11m和YOLOv11s 的性能更优。
+
+在检测速度方面，平均检测一张图片YOLOv11m耗时最长，为31.5ms，YOLOv11s为27.3ms，比YOLOv11m快了13.3\%。YOLOv11n最快，为24ms，比YOLOv11s快了12.1\%，比YOLOv11m快了23.8\%。
+
+根据分析可知，YOLOv11n在速度上具有明显优势，适用于对实时性要求较高的场景。YOLOv11s 在精度和速度之间取得了较好的平衡，属于一个适中的模型。YOLOv11m牺牲了一定的检测速度，换来了更高的精度，适合对检测精度要求极高的场景。
+
+\begin{table}[htb]
+    \centering
+    \caption[目标数据]{YOLO数据标注格式\label{tab:modelCompare}}
+    \begin{tabular}{lccccc}
+        \toprule
+        \multicolumn{1}{c}{Model} & \multicolumn{1}{c}{Precision(\%)} & \multicolumn{1}{c}{Recall(\%)} & \multicolumn{1}{c}{mAP50(\%)} & \multicolumn{1}{c}{mAP50-95(\%)} & \multicolumn{1}{c}{Speed(ms)}\\
+        \midrule
+        YOLOv11n & 96.7 & 96.6 & 99.0 & 94.1 & 24 \\
+        YOLOv11s & 96.2 & 97.2 & 99.0 & 95.4 & 27.3 \\
+        YOLOv11m & 97.3 & 98.1 & 99.1 & 95.5 & 31.5 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{本章小结}
+本章首先介绍了目标检测模型检测精度和检测速度的几个重要评价指标，然后对本文进行的模型训练结果进行展示，最后对本文三个模型的精度与速度进行了对比分析，总结了各个模型适用的场景。
+% % 本文件是示例论文的一部分
+% % 论文的主文件位于上级目录的 `main.tex`
+% \chapter{参考文献}
+
+% 为了规范我校学位论文写作，我校学位论文的参考文献采用采用
+% \enquote{著者-出版年}制进行文献的引用与著录。
+
+% \section{正文中参考文献的引用}
+% \subsection{著者作为引用主语}
+% 文中提及著者，在被引用的著者姓名或外国著者姓氏之后用圆括号标注文献出版年，
+% 可使用\cs{textcite}、\cs{yearcite}命令或手动模式引用文献，如：
+
+% \begin{center}
+%   \begin{minipage}{0.45\textwidth}
+%     \small
+%     \verb|\textcite{赵耀东1998--}|指出...
+
+%     赵耀东\verb|\yearcite{赵耀东1998--}|指出...
+
+%     赵耀东\verb|(\cite*{赵耀东1998--})|指出...
+
+%     赵耀东\verb|(\citeyear{赵耀东1998--})|指出...
+%   \end{minipage}
+%   \begin{boxedminipage}{0.45\textwidth}
+%     \small
+%     \textcite{赵耀东1998--}指出...
+
+%     赵耀东\yearcite{赵耀东1998--}指出...
+
+%     赵耀东(\cite*{赵耀东1998--})指出...
+
+%     赵耀东(\citeyear{赵耀东1998--})指出...
+%   \end{boxedminipage}
+% \end{center}
+
+% \note{手动模式使用\cs{cite*}或\cs{citeyear}命令时，需要在两端加上小括号。}
+
+% \subsection{提及内容未提及著者}
+
+% 文中只提及所引用的资料内容而未提及著者，则在引文叙述文字之后用圆括号标注著
+% 者姓名或外国著者姓氏和出版年份，在著者和年份之间空一格，此时可以使用
+% \cs{cite}命令引用文献，如：
+
+% \begin{center}
+%   \begin{minipage}{0.45\textwidth}
+%     \small
+%     孟德尔发现了一个很重要的现象，即红、白花豌豆杂交后的所结种子
+%       第二年长出的植株的红白花比例为3:1\verb|\cite{fzx1962}|。%
+%   \end{minipage}
+%   \begin{boxedminipage}{0.45\textwidth}
+%     \small
+%     孟德尔发现了一个很重要的现象，即红、白花豌豆杂交后的所结种子
+%       第二年长出的植株的红白花比例为3:1\cite{fzx1962}。%
+%   \end{boxedminipage}
+% \end{center}
+
+% \subsection{同一著者不同年份出版多篇文献}
+% 引用同一著者不同年份出版的多篇文献时，后者只注出版年；引用同一著者在同一年
+% 份出版的多篇文献时，无论正文还是文末，年份之后用英文小写字母 a、b、c 等加
+% 以区别。按年份递增顺序排列,不同文献之间用逗号隔开。此时可以使用\cs{cite}命
+% 令引用文献，如：
+
+% \begin{center}
+%   \begin{minipage}{0.45\textwidth}
+%     \small
+%     UML基础和Rose建模教程中给出了大量案例及案例分析\verb|\cite{蔡敏2006a--,蔡敏2006b--}|。%
+%   \end{minipage}
+%   \begin{boxedminipage}{0.45\textwidth}
+%     \small
+%     UML基础和Rose建模教程中给出了大量案例及案例分析\cite{蔡敏2006a--,蔡敏2006b--}。%
+%   \end{boxedminipage}
+% \end{center}
+
+% \subsection{两著者文献}
+
+% 引用两个著者的文献时,两个著者之间加\enquote{和}(中文)或\enquote{and}(英文)。
+% 此时可以使用\cs{cite}命令引用文献，如：
+
+% \begin{center}
+%   \begin{minipage}{0.45\textwidth}
+%     \small
+%     利用基于Matlab的计算机仿真\verb|\cite{郭文彬2006--}|，研究了UWB和窄带通讯中
+%       的信号共存特性\verb|\cite{Chiani2009-231-254}|。%
+%   \end{minipage}
+%   \begin{boxedminipage}{0.45\textwidth}
+%     \small
+%     利用基于Matlab的计算机仿真\cite{郭文彬2006--}，研究了UWB和窄带通讯中
+%       的信号共存特性\cite{Chiani2009-231-254}。%
+%   \end{boxedminipage}
+% \end{center}
+
+% \subsection{三个以上著者文献}
+
+% 引用三个以上著者时，只标注第一著者姓名，其后加\enquote{等}(中文)或
+% \enquote{et al.}(英文)。此时可以使用\cs{cite}命令引用文献，如：
+
+% \begin{center}
+%   \begin{minipage}{0.45\textwidth}
+%     \small
+%     UML基础和Rose建模教程中详细说明了其基本方法和技巧\verb|\cite{蔡敏2006--}|。
+
+%     你不好好学点\LaTeX{}基本命令还真不行\verb|\cite{r9}|。%
+%   \end{minipage}
+%   \begin{boxedminipage}{0.45\textwidth}
+%     \small
+%     UML基础和Rose建模教程中详细说明了其基本方法和技巧\cite{蔡敏2006--}。
+
+%     你不好好学点\LaTeX{}基本命令还真不行\cite{r9}。%
+%   \end{boxedminipage}
+% \end{center}
+
+% \subsection{同一处引用多篇文献}
+
+% 同一处引用多篇文献时，按著者字母顺序排列，不同著者文献之间用分号隔开。
+% 此时可以使用\cs{cite}命令引用文献，注意用逗号分开\texttt{citeKey}就好，如：
+
+% \begin{center}
+%   \begin{minipage}{0.45\textwidth}
+%     \small
+%     同时引用多个文献\verb|\cite{r2,r3,r4,r6}|。%
+%   \end{minipage}
+%   \begin{boxedminipage}{0.45\textwidth}
+%     \small
+%     同时引用多个文献\cite{r2,r3,r4,r6}。%
+%   \end{boxedminipage}
+% \end{center}
+
+% \subsection{多次引用同一著者的同一文献}
+
+% 多次引用同一著者的同一文献,在正文中标注著者与出版年, 并在\enquote{()}内以
+% 以冒号形式标注引文页码。此时可以使用\cs{parencite}命令引用文献，注意用可选
+% 参数指定引用页码，如：
+
+% \begin{center}
+%   \begin{minipage}{0.45\textwidth}
+%     \small
+%     在文献\verb|\parencite[20-22]{n21}|说了一， 在文献\verb|\parencite[55-60]{n21}|说了二。%
+%   \end{minipage}
+%   \begin{boxedminipage}{0.45\textwidth}
+%     \small
+%     在文献\parencite[20-22]{n21}说了一， 在文献\parencite[55-60]{n21}说了二。%
+%   \end{boxedminipage}
+% \end{center}
+
+% \note{关于著者-出版年样式命令的详细说明可参见胡振震\enquote{符合 GB/T
+%   7714-2015 标准的 biblatex 参考文献样式}说明中的例12。}
+
+% \section{参考文献列表}
+
+% 参考文献列表的输出只需要使用命令\cs{printbibliography}进行输出即可，如：
+
+% % 排版参考文献表
+% % \printbibliography%
+
+% \section{参考文献数据文件准备}
+
+% \LaTeX 文档中生成参考文献一般都需要准备一个参考文献数据源文件即\enquote{*.bib}
+% 文件。这一文件内保存有各条参考文献的信息，具体可以参考biblatex宏包手册和
+% biblatex-gb7714-2015样式包手册\cite{胡振震2019}中关于域信息录入的说明。
+
+% 参考文献源文件本质上只是一个文本文件，只是其内容需要遵守BibTeX格式，参考文
+% 献源文件可以有多种生成方式，具体可参考\LaTeX{}文档中文参考文献的biblatex 
+% 解决方案\parencite[2.2节]{胡振震2016}。
+
+% 本模板采用由胡振震维护的
+% \enquote{符合 GB/T 7714-2015 标准的 biblatex 参考文献样式}实现参考文献的编
+% 排\cite{胡振震2019}，其Github链接为
+% \url{https://github.com/hushidong/biblatex-gb7714-2015}。
+% 大家也可以通过\TeX~Live的 \verb|texdoc gb7714-2015|命令查看其使用说明。
+
+% 关于著者-出版年样式命令的详细说明可参见胡振震\enquote{符合 GB/T7714-2015 
+% 标准的 biblatex 参考文献样式}说明中的中的相关内容
+% \parencite[2.2、2.3节]{胡振震2016}。
+
+% \section{交叉引用}
+% \note{与图、表、公式、定理等一样，请使用专用命令引用并输出参考文献，以实现
+% 参考文献的\emph{自动化}处理，\emph{万万不可}手动编写参考文献}！
+
+
+% %%% Local Variables: 
+% %%% mode: latex
+% %%% TeX-master: "../main.tex"
+% %%% End:
