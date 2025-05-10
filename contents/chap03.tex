@@ -1,7 +1,7 @@
 \chapter{数据集构建及训练参数设置}
 
 \section{数据集构建}
-本文所使用的摩托车驾乘人员头盔佩戴情况数据集来源于某国家真实的交通道路照片。本文首先使用LabelImg工具对数据集进行标注，生成xml格式的标注文件，再转换成YOLO格式的txt标注文件。YOLO所使用的txt标注文件的格式如\ref{tab:format}所示，文件的每一行有五个元素，class代表当前目标的类别，x\_center(y\_center)代表边界框中心点的x(y)坐标，相对于图像宽度(高度)的归一化值，width(height)代表边界框的宽度(高度)相对于图像宽度(高度)的归一化值。上述五元组能够表示某一个类别的目标在图像中的位置。
+本文所使用的摩托车驾乘人员头盔佩戴情况数据集来源于缅甸真实的交通道路照片。本文首先使用LabelImg工具对数据集进行标注，生成xml格式的标注文件，再转换成YOLO格式的txt标注文件。YOLO所使用的txt标注文件的格式如\ref{tab:format}所示，文件的每一行有五个元素，class代表当前目标的类别，x\_center(y\_center)代表边界框中心点的x(y)坐标，相对于图像宽度(高度)的归一化值，width(height)代表边界框的宽度(高度)相对于图像宽度(高度)的归一化值。上述五元组能够表示某一个类别的目标在图像中的位置。
 
 \begin{table}[htb]
       \centering
@@ -63,47 +63,49 @@
     \label{fig:enhance}
 \end{figure}
 
-最后得到了6282张图片，以7:2:1的比例，随机将图片划分为训练集、验证集和测试集。本文将目标类别分为18类，具体类别以及含义如\ref{tab:newlabel}所示。每一个类别的样本数量分布如\ref{fig:label1}所示。现对\ref{tab:newlabel}中meaning一列做解释：D(Driver)代表摩托车驾驶员，P(Partner)代表乘车人员。P1代表驾驶员身后的一名乘车人员，P2代表驾驶员身后的另一名乘车人员，P0代表驾驶员身前的乘车人员(在原数据集中，某些小朋友会坐在驾驶员身前)。而D、P0、P1和P2后面紧跟着该乘车人员的头盔佩戴情况，Helmet代表已佩戴头盔，NoHelmet代表未佩戴头盔。例如，标签为S09的含义为DNoHelmetP0NoHelmetP1NoHelmet，表示摩托车驾驶员未佩戴头盔，驾驶员身前的乘车人员未佩戴头盔，驾驶员身后的一名乘车人员未佩戴头盔。
-
-对原数据集5661张图片中的每一个驾驶员目标框进行裁剪，得到33571张包含驾驶员信息的图片，共有570个不同驾驶员。由于驾驶员的图片样本也存在不平衡的情况，对这33571张图片同样进行图像增强，保证每一个驾驶员都有100张样本图片。
+对原数据集进行增强之后，共有6282张图片，以7:2:1的比例，随机将图片划分为训练集、验证集和测试集。本文将目标类别分为18类，标签为S01-S18，其对应关系以及含义如\ref{tab:newlabel}所示，其中meaning一列命名规则为：D(Driver)代表摩托车驾驶员，P(Partner)代表乘车人员。P1代表驾驶员身后的一名乘车人员，P2代表驾驶员身后的另一名乘车人员，P0代表驾驶员身前的乘车人员(在原数据集中，某些小朋友会坐在驾驶员身前)。而D、P0、P1和P2后面紧跟着该乘车人员的头盔佩戴情况，Helmet代表已佩戴头盔，NoHelmet代表未佩戴头盔。例如，标签为S09的含义为DNoHelmetP0NoHelmetP1NoHelmet，表示摩托车驾驶员未佩戴头盔，驾驶员身前的乘车人员未佩戴头盔，驾驶员身后的一名乘车人员未佩戴头盔。
 
 \begin{table}[htb]
-      \centering
-      \caption[标签解释]{目标类别标签含义\label{tab:newlabel}}
-      \begin{tabular}{lcl}
-          \toprule
-          \multicolumn{1}{c}{class} & \multicolumn{1}{c}{label} & \multicolumn{1}{l}{meaning} \\
-          \midrule
-          0 & S01 & DHelmetP1NoHelmetP2NoHelmet \\
-          1 & S02 & DNoHelmetP1NoHelmetP2NoHelmet \\
-          2 & S03 & DHelmetP0NoHelmetP1NoHelmet \\
-          3 & S04 & DNoHelmetP1NoHelmet \\
-          4 & S05 & DHelmetP0NoHelmet \\
-          5 & S06 & DNoHelmet \\
-          6 & S07 & DNoHelmetP1NoHelmetP2Helmet \\
-          7 & S08 & DHelmetP1NoHelmet \\
-          8 & S09 & DNoHelmetP0NoHelmetP1NoHelmet \\
-          9 & S10 & DNoHelmetP1Helmet \\
-          10 & S11 &  DHelmetP0NoHelmetP1Helmet \\
-          11 & S12 &  DNoHelmetP0NoHelmetP1NoHelmetP2NoHelmet \\
-          12 & S13 &  DHelmetP1NoHelmetP2Helmet \\
-          13 & S14 &  DNoHelmetP0NoHelmet \\
-          14 & S15 &  DHelmet \\
-          15 & S16 &  DHelmetP1Helmet \\
-          16 & S17 &  DHelmetP0Helmet \\
-          17 & S18 &  DHelmetP1HelmetP2Helmet \\
-          \bottomrule
-      \end{tabular}
+    \centering
+    \caption[标签解释]{目标类别标签含义\label{tab:newlabel}}
+    \begin{tabular}{lcl}
+        \toprule
+        \multicolumn{1}{c}{class} & \multicolumn{1}{c}{label} & \multicolumn{1}{l}{meaning} \\
+        \midrule
+        0 & S01 & DHelmetP1NoHelmetP2NoHelmet \\
+        1 & S02 & DNoHelmetP1NoHelmetP2NoHelmet \\
+        2 & S03 & DHelmetP0NoHelmetP1NoHelmet \\
+        3 & S04 & DNoHelmetP1NoHelmet \\
+        4 & S05 & DHelmetP0NoHelmet \\
+        5 & S06 & DNoHelmet \\
+        6 & S07 & DNoHelmetP1NoHelmetP2Helmet \\
+        7 & S08 & DHelmetP1NoHelmet \\
+        8 & S09 & DNoHelmetP0NoHelmetP1NoHelmet \\
+        9 & S10 & DNoHelmetP1Helmet \\
+        10 & S11 &  DHelmetP0NoHelmetP1Helmet \\
+        11 & S12 &  DNoHelmetP0NoHelmetP1NoHelmetP2NoHelmet \\
+        12 & S13 &  DHelmetP1NoHelmetP2Helmet \\
+        13 & S14 &  DNoHelmetP0NoHelmet \\
+        14 & S15 &  DHelmet \\
+        15 & S16 &  DHelmetP1Helmet \\
+        16 & S17 &  DHelmetP0Helmet \\
+        17 & S18 &  DHelmetP1HelmetP2Helmet \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
+18个类别的样本数量分布如\ref{fig:label1}所示，可以看出S15标签数量最多，共6742个，其表示单一驾驶员佩戴头盔；S06标签数量次之，共6346个，其表示单一驾驶员未佩戴头盔，二者实例数量远高于其他标签。说明单一驾驶员驾驶摩托车是最常出现的情况，且佩戴头盔要比不佩戴头盔的情况稍多一些。除上述两个标签之外，S16和S04是数量最多的两个标签，S16标签共3296个，表示驾驶员和身后的一名乘客都佩戴头盔；S04标签共2503个，表示驾驶员和身后的一名乘客都未佩戴头盔。其余标签相对较少，数量都在1000以内。
 
+由表中数据可以看出，单一驾驶员驾驶摩托车的情况出现次数最多，其次是驾驶员携带一名乘客的情况。并且不管是单一驾驶员，还是驾驶员携带一名乘客，佩戴头盔的情况均多于不佩戴头盔的情况。
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{figs/chap03/label1.png}
+    \includegraphics[width=0.8\textwidth]{figs/chap03/label1.png}
     \caption{头盔佩戴情况标签数量分布}
     \label{fig:label1}
 \end{figure}
+
+对原数据集5661张图片中的每一个驾驶员目标框进行裁剪，得到33571张包含驾驶员信息的图片，共有570个不同驾驶员。由于驾驶员的图片样本也存在不平衡的情况，对这33571张图片同样进行图像增强，保证每一个驾驶员都至少有100张样本图片。
 
 % \begin{figure}[!htb]
 %       \centering
@@ -122,8 +124,6 @@
 %       \end{minipage}
 % \end{figure}
 
-
-
 \section{实验环境}
 操作系统：Ubuntu 20.04.3 LTS (Focal Fossa)
 
@@ -140,12 +140,27 @@ CUDA版本：12.2
 Pytorch版本：2.7.0+cu126
 
 \section{参数设置}
-
-\subsection{基本参数}
-本文基于YOLOv11进行模型训练，分别使用YOLOv11n.pt、YOLOv11s.pt、YOLOv11m.pt进行训练。本文进行头盔佩戴情况检测模型训练时，共有18个标签，在yaml文件里nc设置为18。在训练模型中，将batch设置为16，输入图像的size默认设置为640x640，epochs设置为300。
-
-\subsection{超参数}
+本文分别使用YOLOv11n.pt、YOLOv11s.pt、YOLOv11m.pt进行训练，参数设置见\ref{tab:param}。本文进行头盔佩戴情况检测模型训练时，共有18个标签，在yaml文件里nc设置为18。在训练模型中，将batch设置为16，输入图像的size默认设置为640x640，epochs设置为300。
 degrees设置为20，在指定度数范围内随机旋转图像，提升模型对摄像头拍摄到的不同角度的图像的识别能力。hsv\_v设置为0.6，将图像的亮度修改一部分，模拟不同的光照环境。translate设置为0.2，将图像进行水平和垂直平移，有助于检测部分可见物体。
+
+\begin{table}[htb]
+    \centering
+    \caption[标签解释]{参数设置\label{tab:param}}
+    \begin{tabular}{lll}
+        \toprule
+        \multicolumn{1}{l}{param} & \multicolumn{1}{l}{value} & \multicolumn{1}{l}{meaing}\\
+        \midrule
+        nc & 18 & 类别数量\\
+        batch & 16 & 训练批次\\
+        size & 640x640 & 输入图像的尺寸\\
+        epochs & 300 & 训练轮数\\
+        degrees & 20 & 控制图像随机旋转的度数范围\\
+        hsv\_v & 0.6 & 控制图像亮度调整幅度\\
+        translate & 0.2 & 控制图像在水平和垂直方向上的平移程度\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 \section{本章小结}
 本章主要介绍了原数据集的状况以及后续处理过程，展示了需要训练的两个模型的标签及其数量分布。简要介绍了实验环境以及训练的参数设置，说明了本文将基于YOLOv11的三个不同量级的模型进行训练，比较各自的性能。

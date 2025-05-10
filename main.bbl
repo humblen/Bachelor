@@ -69,76 +69,135 @@
       \range{pages}{2}
       \keyw{hss}
     \endentry
-    \entry{ex2}{article}{}
-      \name{author}{5}{}{%
-        {{hash=9998e65ae528e6b9a5b52f7c93408e13}{%
-           family={肖振久},
-           familyi={肖\bibinitperiod}}}%
-        {{hash=3566ccb5d1017087faf7447674b1469d}{%
-           family={许子豪},
-           familyi={许\bibinitperiod}}}%
-        {{hash=a0f6d5c2eec1b8eacdaff3d7692fd20d}{%
-           family={金海波},
-           familyi={金\bibinitperiod}}}%
-        {{hash=b6927cec7b2324ddcc230da9ae20db22}{%
-           family={李士博},
-           familyi={李\bibinitperiod}}}%
-        {{hash=9c86beeb787ad35fc13949d852b20503}{%
-           family={杨雅涵},
-           familyi={杨\bibinitperiod}}}%
+    \entry{ex5}{article}{}
+      \name{author}{4}{}{%
+        {{hash=959b9cc472dcc347cdf980f36fb49206}{%
+           family={秦乐},
+           familyi={秦\bibinitperiod}}}%
+        {{hash=384b1662a8f9caf66f859c33acaa2db7}{%
+           family={谭泽富},
+           familyi={谭\bibinitperiod}}}%
+        {{hash=1dc51fa4d6e3ade8627e979517282f8b}{%
+           family={雷国平},
+           familyi={雷\bibinitperiod}}}%
+        {{hash=acc381bf85cc59df8255396737b57cec}{%
+           family={陈秋伯},
+           familyi={陈\bibinitperiod}}}%
       }
-      \name{namea}{5}{}{%
-        {{hash=9998e65ae528e6b9a5b52f7c93408e13}{%
-           family={肖振久},
-           familyi={肖\bibinitperiod}}}%
-        {{hash=3566ccb5d1017087faf7447674b1469d}{%
-           family={许子豪},
-           familyi={许\bibinitperiod}}}%
-        {{hash=a0f6d5c2eec1b8eacdaff3d7692fd20d}{%
-           family={金海波},
-           familyi={金\bibinitperiod}}}%
-        {{hash=b6927cec7b2324ddcc230da9ae20db22}{%
-           family={李士博},
-           familyi={李\bibinitperiod}}}%
-        {{hash=9c86beeb787ad35fc13949d852b20503}{%
-           family={杨雅涵},
-           familyi={杨\bibinitperiod}}}%
+      \name{namea}{4}{}{%
+        {{hash=959b9cc472dcc347cdf980f36fb49206}{%
+           family={秦乐},
+           familyi={秦\bibinitperiod}}}%
+        {{hash=384b1662a8f9caf66f859c33acaa2db7}{%
+           family={谭泽富},
+           familyi={谭\bibinitperiod}}}%
+        {{hash=1dc51fa4d6e3ade8627e979517282f8b}{%
+           family={雷国平},
+           familyi={雷\bibinitperiod}}}%
+        {{hash=acc381bf85cc59df8255396737b57cec}{%
+           family={陈秋伯},
+           familyi={陈\bibinitperiod}}}%
       }
       \list{language}{1}{%
         {chinese}%
       }
-      \strng{namehash}{26f3be0d34ef706dc346e92cf5ae40ef}
-      \strng{fullhash}{6b9d6e8d02fef1fc2d6b8bea4b2eaa1e}
-      \strng{bibnamehash}{6b9d6e8d02fef1fc2d6b8bea4b2eaa1e}
-      \strng{authorbibnamehash}{6b9d6e8d02fef1fc2d6b8bea4b2eaa1e}
-      \strng{authornamehash}{26f3be0d34ef706dc346e92cf5ae40ef}
-      \strng{authorfullhash}{6b9d6e8d02fef1fc2d6b8bea4b2eaa1e}
-      \strng{nameabibnamehash}{6b9d6e8d02fef1fc2d6b8bea4b2eaa1e}
-      \strng{nameanamehash}{26f3be0d34ef706dc346e92cf5ae40ef}
-      \strng{nameafullhash}{6b9d6e8d02fef1fc2d6b8bea4b2eaa1e}
+      \strng{namehash}{5f1104bb6044a361729d59e634240e3a}
+      \strng{fullhash}{20ce2a4e8689c5f3620c7667a2695984}
+      \strng{bibnamehash}{20ce2a4e8689c5f3620c7667a2695984}
+      \strng{authorbibnamehash}{20ce2a4e8689c5f3620c7667a2695984}
+      \strng{authornamehash}{5f1104bb6044a361729d59e634240e3a}
+      \strng{authorfullhash}{20ce2a4e8689c5f3620c7667a2695984}
+      \strng{nameabibnamehash}{20ce2a4e8689c5f3620c7667a2695984}
+      \strng{nameanamehash}{5f1104bb6044a361729d59e634240e3a}
+      \strng{nameafullhash}{20ce2a4e8689c5f3620c7667a2695984}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{1009-6094}
-      \field{journaltitle}{安全与环境学报}
+      \field{issn}{1002-8331}
+      \field{journaltitle}{计算机工程与应用}
       \field{langid}{english}
       \field{languageid}{chinese}
       \field{lansortorder}{1}
-      \field{title}{DEL–YOLO：安全帽佩戴检测的轻量化模型研究}
+      \field{title}{EMF-YOLO: 轻量化多尺度特征提取路面缺陷检测算法}
       \field{usera}{J}
       \field{userd}{chinese}
       \field{userf}{chinese}
       \field{year}{2025}
       \field{dateera}{ce}
-      \field{pages}{1\bibrangedash 11}
-      \range{pages}{11}
-      \verb{doi}
-      \verb 10.13637/j.issn.1009-6094.2024.2093
-      \endverb
-      \keyw{ex2}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+      \keyw{ex5}
+    \endentry
+    \entry{ex4}{article}{}
+      \name{author}{5}{}{%
+        {{hash=04a0248c32817316d4d754b8dac7b519}{%
+           family={袁婷婷},
+           familyi={袁\bibinitperiod}}}%
+        {{hash=99e138c45bd1ba89c7d33edc5fd72d3f}{%
+           family={赖惠成},
+           familyi={赖\bibinitperiod}}}%
+        {{hash=5b89652310bf93711e51a327a7a95649}{%
+           family={汤静雯},
+           familyi={汤\bibinitperiod}}}%
+        {{hash=3c8aa3baacc62fd80b0c7d2cb03f67de}{%
+           family={张晞},
+           familyi={张\bibinitperiod}}}%
+        {{hash=5f1c5b869c3d9756dd15ae55e1603fd0}{%
+           family={高古学},
+           familyi={高\bibinitperiod}}}%
+      }
+      \name{namea}{5}{}{%
+        {{hash=04a0248c32817316d4d754b8dac7b519}{%
+           family={袁婷婷},
+           familyi={袁\bibinitperiod}}}%
+        {{hash=99e138c45bd1ba89c7d33edc5fd72d3f}{%
+           family={赖惠成},
+           familyi={赖\bibinitperiod}}}%
+        {{hash=5b89652310bf93711e51a327a7a95649}{%
+           family={汤静雯},
+           familyi={汤\bibinitperiod}}}%
+        {{hash=3c8aa3baacc62fd80b0c7d2cb03f67de}{%
+           family={张晞},
+           familyi={张\bibinitperiod}}}%
+        {{hash=5f1c5b869c3d9756dd15ae55e1603fd0}{%
+           family={高古学},
+           familyi={高\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {chinese}%
+      }
+      \strng{namehash}{4803db77c76c086a1e8b64ca871265b4}
+      \strng{fullhash}{4048d40d6cf3bc3afb25cdd3cfd91351}
+      \strng{bibnamehash}{4048d40d6cf3bc3afb25cdd3cfd91351}
+      \strng{authorbibnamehash}{4048d40d6cf3bc3afb25cdd3cfd91351}
+      \strng{authornamehash}{4803db77c76c086a1e8b64ca871265b4}
+      \strng{authorfullhash}{4048d40d6cf3bc3afb25cdd3cfd91351}
+      \strng{nameabibnamehash}{4048d40d6cf3bc3afb25cdd3cfd91351}
+      \strng{nameanamehash}{4803db77c76c086a1e8b64ca871265b4}
+      \strng{nameafullhash}{4048d40d6cf3bc3afb25cdd3cfd91351}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1002-8331}
+      \field{journaltitle}{计算机工程与应用}
+      \field{langid}{english}
+      \field{languageid}{chinese}
+      \field{lansortorder}{1}
+      \field{title}{LMFI-YOLO: 复杂场景下的轻量化行人检测算法}
+      \field{usera}{J}
+      \field{userd}{chinese}
+      \field{userf}{chinese}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+      \keyw{ex4}
     \endentry
     \entry{ex1}{article}{}
       \name{author}{5}{}{%
@@ -829,7 +888,7 @@
       \endverb
       \keyw{yolov6,report}
     \endentry
-    \entry{ex3}{article}{}
+    \entry{ex2}{article}{}
       \name{author}{6}{}{%
         {{hash=d9c5e16c8c7af7ffa5031c4a81f5c992}{%
            family={Raza},
@@ -927,7 +986,7 @@
       \field{dateera}{ce}
       \field{pages}{911\bibrangedash 931}
       \range{pages}{21}
-      \keyw{ex3}
+      \keyw{ex2}
     \endentry
     \entry{yolo}{inproceedings}{}
       \name{author}{4}{}{%
@@ -1338,140 +1397,6 @@
       \range{pages}{8}
       \keyw{Viola2001}
     \endentry
-    \entry{yolov10}{article}{}
-      \name{author}{3}{}{%
-        {{hash=8e89dcb803fceedaac3459e5e9a191d8}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={C.-Y.},
-           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
-        {{hash=96aa07b64a1b86ab7aeae9071ee08b47}{%
-           family={Bochkovskiy},
-           familyi={B\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=8009eb32a1168c24b607faa34283c76b}{%
-           family={Liao},
-           familyi={L\bibinitperiod},
-           given={H.-Y.\bibnamedelimi M.},
-           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-      }
-      \name{namea}{3}{}{%
-        {{hash=8e89dcb803fceedaac3459e5e9a191d8}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={C.-Y.},
-           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
-        {{hash=96aa07b64a1b86ab7aeae9071ee08b47}{%
-           family={Bochkovskiy},
-           familyi={B\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=8009eb32a1168c24b607faa34283c76b}{%
-           family={Liao},
-           familyi={L\bibinitperiod},
-           given={H.-Y.\bibnamedelimi M.},
-           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{696dc57a62d2bd908b64212c0b1b9a77}
-      \strng{fullhash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{bibnamehash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{authorbibnamehash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{authornamehash}{696dc57a62d2bd908b64212c0b1b9a77}
-      \strng{authorfullhash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{nameabibnamehash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{nameanamehash}{696dc57a62d2bd908b64212c0b1b9a77}
-      \strng{nameafullhash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{extradate}{1}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv:2405.xxxxx}
-      \field{langid}{english}
-      \field{languageid}{english}
-      \field{lansortorder}{4}
-      \field{title}{{YOLOv10}: Real-Time End-to-End Object Detection with Enhanced Efficiency-Accuracy Tradeoff}
-      \field{usera}{J}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2024}
-      \field{dateera}{ce}
-      \keyw{yolov10}
-    \endentry
-    \entry{yolov9}{article}{}
-      \name{author}{3}{}{%
-        {{hash=8e89dcb803fceedaac3459e5e9a191d8}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={C.-Y.},
-           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
-        {{hash=96aa07b64a1b86ab7aeae9071ee08b47}{%
-           family={Bochkovskiy},
-           familyi={B\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=8009eb32a1168c24b607faa34283c76b}{%
-           family={Liao},
-           familyi={L\bibinitperiod},
-           given={H.-Y.\bibnamedelimi M.},
-           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-      }
-      \name{namea}{3}{}{%
-        {{hash=8e89dcb803fceedaac3459e5e9a191d8}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={C.-Y.},
-           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
-        {{hash=96aa07b64a1b86ab7aeae9071ee08b47}{%
-           family={Bochkovskiy},
-           familyi={B\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=8009eb32a1168c24b607faa34283c76b}{%
-           family={Liao},
-           familyi={L\bibinitperiod},
-           given={H.-Y.\bibnamedelimi M.},
-           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{696dc57a62d2bd908b64212c0b1b9a77}
-      \strng{fullhash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{bibnamehash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{authorbibnamehash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{authornamehash}{696dc57a62d2bd908b64212c0b1b9a77}
-      \strng{authorfullhash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{nameabibnamehash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \strng{nameanamehash}{696dc57a62d2bd908b64212c0b1b9a77}
-      \strng{nameafullhash}{e0224291d0b5a89bd8ce84e1829af6a2}
-      \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{extradate}{2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv:2402.13616}
-      \field{langid}{english}
-      \field{languageid}{english}
-      \field{lansortorder}{4}
-      \field{title}{{YOLOv9}: Learning What You Want to Learn Using Programmable Gradient Information}
-      \field{usera}{J}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2024}
-      \field{dateera}{ce}
-      \keyw{yolov9}
-    \endentry
     \entry{yolov7}{article}{}
       \name{author}{3}{}{%
         {{hash=053d491932411950eccf2bb9a1025d11}{%
@@ -1519,7 +1444,6 @@
       \strng{nameabibnamehash}{9278ecb881789e377b71403c2cf54d74}
       \strng{nameanamehash}{d0820b10ae0595f75853ddaccc5f1ccf}
       \strng{nameafullhash}{9278ecb881789e377b71403c2cf54d74}
-      \field{extraname}{3}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{extradatescope}{labelyear}
@@ -1549,6 +1473,209 @@
       \verb https://arxiv.org/abs/2207.02696
       \endverb
       \keyw{yolov7}
+    \endentry
+    \entry{yolov10}{article}{}
+      \name{author}{3}{ul=2}{%
+        {{hash=053d491932411950eccf2bb9a1025d11}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Chien-Yao},
+           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=c0b2fdc20c37a4bd8d817822d374f809}{%
+           family={Bochkovskiy},
+           familyi={B\bibinitperiod},
+           given={Alexey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c81478c691c1bc1cc01404c44b5bd5bf}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Hong-Yuan\bibnamedelima Mark},
+           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \name{namea}{3}{}{%
+        {{hash=053d491932411950eccf2bb9a1025d11}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Chien-Yao},
+           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=c0b2fdc20c37a4bd8d817822d374f809}{%
+           family={Bochkovskiy},
+           familyi={B\bibinitperiod},
+           given={Alexey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c81478c691c1bc1cc01404c44b5bd5bf}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Hong-Yuan\bibnamedelima Mark},
+           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{e6ca1ede0eaa6c30890eb843d063fc49}
+      \strng{fullhash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{bibnamehash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{authorbibnamehash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{authornamehash}{e6ca1ede0eaa6c30890eb843d063fc49}
+      \strng{authorfullhash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{nameabibnamehash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{nameanamehash}{d0820b10ae0595f75853ddaccc5f1ccf}
+      \strng{nameafullhash}{9278ecb881789e377b71403c2cf54d74}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv:2405.xxxxx}
+      \field{langid}{english}
+      \field{languageid}{english}
+      \field{lansortorder}{4}
+      \field{title}{{YOLOv10}: Real-Time End-to-End Object Detection with Enhanced Efficiency-Accuracy Tradeoff}
+      \field{usera}{J}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \keyw{yolov10}
+    \endentry
+    \entry{yolov9}{article}{}
+      \name{author}{3}{ul=2}{%
+        {{hash=053d491932411950eccf2bb9a1025d11}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Chien-Yao},
+           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=c0b2fdc20c37a4bd8d817822d374f809}{%
+           family={Bochkovskiy},
+           familyi={B\bibinitperiod},
+           given={Alexey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c81478c691c1bc1cc01404c44b5bd5bf}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Hong-Yuan\bibnamedelima Mark},
+           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \name{namea}{3}{}{%
+        {{hash=053d491932411950eccf2bb9a1025d11}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Chien-Yao},
+           giveni={C\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=c0b2fdc20c37a4bd8d817822d374f809}{%
+           family={Bochkovskiy},
+           familyi={B\bibinitperiod},
+           given={Alexey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c81478c691c1bc1cc01404c44b5bd5bf}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Hong-Yuan\bibnamedelima Mark},
+           giveni={H\bibinithyphendelim Y\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{e6ca1ede0eaa6c30890eb843d063fc49}
+      \strng{fullhash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{bibnamehash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{authorbibnamehash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{authornamehash}{e6ca1ede0eaa6c30890eb843d063fc49}
+      \strng{authorfullhash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{nameabibnamehash}{9278ecb881789e377b71403c2cf54d74}
+      \strng{nameanamehash}{d0820b10ae0595f75853ddaccc5f1ccf}
+      \strng{nameafullhash}{9278ecb881789e377b71403c2cf54d74}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv:2402.13616}
+      \field{langid}{english}
+      \field{languageid}{english}
+      \field{lansortorder}{4}
+      \field{title}{{YOLOv9}: Learning What You Want to Learn Using Programmable Gradient Information}
+      \field{usera}{J}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \keyw{yolov9}
+    \endentry
+    \entry{ex3}{article}{}
+      \name{author}{3}{ul=2}{%
+        {{hash=6d078b1ff652f8d498712d89e1d8b210}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Feilong},
+           giveni={F\bibinitperiod}}}%
+        {{hash=4ea8ccbd198c606ea24c20d33ad30bb4}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xiaobing},
+           giveni={X\bibinitperiod}}}%
+        {{hash=73268ae9a38322c8ba56b303f42ca52f}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \name{namea}{3}{}{%
+        {{hash=6d078b1ff652f8d498712d89e1d8b210}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Feilong},
+           giveni={F\bibinitperiod}}}%
+        {{hash=4ea8ccbd198c606ea24c20d33ad30bb4}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xiaobing},
+           giveni={X\bibinitperiod}}}%
+        {{hash=73268ae9a38322c8ba56b303f42ca52f}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{8f7961c738dc29627453cda6635d48d0}
+      \strng{fullhash}{fef9e88d8f654da56295e78e9274cb23}
+      \strng{bibnamehash}{fef9e88d8f654da56295e78e9274cb23}
+      \strng{authorbibnamehash}{fef9e88d8f654da56295e78e9274cb23}
+      \strng{authornamehash}{8f7961c738dc29627453cda6635d48d0}
+      \strng{authorfullhash}{fef9e88d8f654da56295e78e9274cb23}
+      \strng{nameabibnamehash}{fef9e88d8f654da56295e78e9274cb23}
+      \strng{nameanamehash}{a39f9d454dd3af5ac7bf681cf9a37855}
+      \strng{nameafullhash}{fef9e88d8f654da56295e78e9274cb23}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Sciences}
+      \field{langid}{english}
+      \field{languageid}{english}
+      \field{lansortorder}{4}
+      \field{number}{20}
+      \field{title}{YOLO-ESL: An Enhanced Pedestrian Recognition Network Based on YOLO}
+      \field{usera}{J}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{volume}{14}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{9588\bibrangedash 9588}
+      \range{pages}{1}
+      \keyw{ex3}
     \endentry
   \enddatalist
 \endrefsection
