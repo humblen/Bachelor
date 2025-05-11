@@ -176,15 +176,14 @@
     \label{fig:seq3}
 \end{figure}
 
-% 该模块的执行流程图如\ref{fig:process1}所示，当接收到用户的检测请求时，首先会保存用户上传的原数据，然后会调用头盔检测模型检测数据中的头盔佩戴情况并保存检测结果到数据库。在检测驾驶员这一功能中，需要对原数据检测到的头盔佩戴目标框做裁剪，调用驾驶员检测模型检测每一个裁剪下来的小图片中的驾驶员，这个过程非常耗时，为了提高用户的使用体验，这里对驾驶员的检测会异步进行，不会阻塞用户的请求。YOLO模型对视频的预测结果默认为avi格式，avi格式的视频在目前各个浏览器上兼容性并不好且体积较大，所以后端这里会对视频检测结果做一个数据格式转换，由avi格式转换为兼容性更好的mp4格式。最后后端会构建好响应结果，返回数据给前端用户。
+该模块类图如\ref{fig:class1}所示，主要由DetectServiceImpl、ImageDTO和Detection三个类构成。ImageDTO类存储了用户输入的待检测资源和自定义检测模型、IOU和置信度四个参数。DetectServiceImpl的公共方法detect接收ImageDTO参数，其余私有方法分别负责保存待测资源、检测头盔佩戴、检测驾驶员id、保存检测结果和构建返回结果，如果当前是视频资源，还会将格式从avi转换为mp4。DetectServiceImpl关联的Detection类作为saveDetectResult()方法的输入参数，负责保存检测结果，包括主键id、驾驶员、头盔佩戴情况、检测地点和检测时间五个属性。
 
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{figs/chap05/process1.png}
-%     \caption{检测模块执行流程}
-%     \label{fig:process1}
-% \end{figure}
-
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figs/chap05/class1.png}
+    \caption{后端检测模块类图}
+    \label{fig:class1}
+\end{figure}
 
 \subsection{搜索模块}
 
@@ -199,45 +198,22 @@
 
 该模块的顺序图如\ref{fig:seq4}所示。用户通过前端页面发起查询请求，该模块将过滤条件拼接到sql语句中去查询Mysql中的数据，然后将查询数据构建成可视化图表要求的格式，最后返回给前端页面。
 
-\begin{figure}[!htb]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.95\textwidth]{figs/chap05/seq4.png}
     \caption{后端搜索模块顺序图}
     \label{fig:seq4}
 \end{figure}
 
-% 该模块负责实现前端的记录查询功能，执行流程如\ref{fig:process2}所示。该模块会接收前端的搜索请求，并将过滤条件拼接到Sql语句中。如果前端传入的某一个字段过滤条件为空，则代表查询时不对该字段进行过滤。由于前端ECharts组件不同的可视化图标对数据的格式要求不同，还需要针对各个可视化图表的要求对数据作进一步处理。
+搜索模块的类图见\ref{fig:class2}，包含SearchServiceImpl、SearchDTO和Detection三个类。SearchDTO作为search方法的输入参数，包含了用户自定义的过滤条件，包括对驾驶员、检测地点和检测时间这三个字段的过滤，对应用户在前端页面输入的过滤值。SearchServiceImpl的search方法负责根据过滤条件从数据库中搜索历史检测记录，用Detection类接收返回值。transform方法以查询出来的Detection结果集为输入，转换为可视化图表需要的特定数据格式。
 
-% \begin{figure}[!htb]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{figs/chap05/process2.png}
-%     \caption{搜索模块执行流程}
-%     \label{fig:process2}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figs/chap05/class2.png}
+    \caption{后端搜索模块类图}
+    \label{fig:class2}
+\end{figure}
 
 \section{本章小结}
-本章首先对基于Vue和SpringBoot框架的摩托车驾乘人员头盔佩戴检测系统进行需求分析，然后通过用例图和顺序图介绍了前端和后端各个模块的设计思路与具体实现。
+本章首先对基于Vue和SpringBoot框架的摩托车驾乘人员头盔佩戴检测系统进行需求分析，然后通过用例图、顺序图和类图介绍了前端和后端各个模块的设计思路与具体实现。
 
-% \chapter{多级标题}
-
-% \section{演示一级标题}
-% \subsection{演示二级标题}
-% \subsubsection{演示三级标题}
-% \subsubsection{再次演示三级标题}
-% \subsection{另一个示二级标题}
-% \subsubsection{另一个三级标题}
-% \subsubsection{还有一个三级标题}
-
-% \section{演示一级标题}
-% \subsection{演示二级标题}
-% \subsubsection{演示三级标题}
-% \subsubsection{再次演示三级标题}
-% \subsection{另一个示二级标题}
-% \subsubsection{另一个三级标题}
-% \subsubsection{还有一个三级标题}
-
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "../main.tex"
-%%% End:

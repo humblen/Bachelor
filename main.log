@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.16)  10 MAY 2025 14:01
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.16)  10 MAY 2025 23:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2258,25 +2258,37 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [29]
 File: figs/chap05/seq3.png Graphic file (type bmp)
 <figs/chap05/seq3.png>
+ [30]
+File: figs/chap05/class1.png Graphic file (type bmp)
+<figs/chap05/class1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30]
+ [31]
 File: figs/chap05/uml4.png Graphic file (type bmp)
 <figs/chap05/uml4.png>
 File: figs/chap05/seq4.png Graphic file (type bmp)
 <figs/chap05/seq4.png>
- [31]) [32]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figs/chap05/class2.png Graphic file (type bmp)
+<figs/chap05/class2.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [32] [33]
 \openout2 = `contents/chap06.aux'.
 
  (./contents/chap06.tex
 第6章
-) [33
+) [34
 
 
 
 
-] [34
+] [35
 
 
 
@@ -2312,11 +2324,11 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
- [35] (./contents/chap08-ack.tex)
+ [36] (./contents/chap08-ack.tex)
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
- [36
+ [37
 
 
 
@@ -2333,18 +2345,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A7A71D9916107D4A453E7C762D79989E;6132.
+(rerunfilecheck)             Checksum: 63128CFA41E27FBC70DED99A588AAF8E;6132.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54081 strings out of 474772
- 1167730 string characters out of 5757708
- 2352976 words of memory out of 5000000
- 75323 multiletter control sequences out of 15000+600000
+ 54103 strings out of 474772
+ 1168286 string characters out of 5757708
+ 2353064 words of memory out of 5000000
+ 75343 multiletter control sequences out of 15000+600000
  565852 words of font info for 169 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,15n,114p,1225b,7230s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (46 pages).
+Output written on main.pdf (47 pages).
