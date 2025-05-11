@@ -6,7 +6,7 @@
 本文使用到的评价目标检测模型精度的指标有精度(Precision)、召回率(Recall)、平均精度(Average Precision, AP)及平均精度均值(mean Average Precision, mAP)。
 
 % IoU用来表示预测框的准确率，它在训练阶段反映的是标注框与预测框的重合程度。例如，用A表示预测目标框，用B表示真实目标框，IoU则是A、B两个框的交集与并集的比值。IoU值越大，代表A、B两个框重叠程度越高。IoU要搭配IoU阈值一起使用。IoU阈值默认被设置为0.5，当两框的IoU大于阈值时，则判断预测框预测正确。
-在深度学习中，将分类任务的预测结果分为以下四种，被称作混淆矩阵，见\ref{fig:matrix}：第一种是真正例(True Positive，TP)，即模型预测为正例，且实际标签也是正例，预测正确；第二种是假负例(False Negative，FN)，指模型预测为负例，但真实标签却是正例，预测错误；第三种是假正例(False Positive，FP)，表示模型将负例误判为正例，同样是预测错误；最后一种是真负例(True Negative，TN)，即模型预测为负例，同时实际标签也为负例，预测正确。这里的正例和负例其实只是针对某一类别而言的，针对A类而言，A类别就是正例，其他类别就是负例。
+% 在深度学习中，将分类任务的预测结果分为以下四种，被称作混淆矩阵，见\ref{fig:matrix}：第一种是真正例(True Positive，TP)，即模型预测为正例，且实际标签也是正例，预测正确；第二种是假负例(False Negative，FN)，指模型预测为负例，但真实标签却是正例，预测错误；第三种是假正例(False Positive，FP)，表示模型将负例误判为正例，同样是预测错误；最后一种是真负例(True Negative，TN)，即模型预测为负例，同时实际标签也为负例，预测正确。这里的正例和负例其实只是针对某一类别而言的，针对A类而言，A类别就是正例，其他类别就是负例。
 
 精度(Precision)和召回率(Recall)，是衡量模型预测准确性与完整性的核心指标。精度的定义如\ref{eq:precision}，其中TP表示模型预测为正例，且实际标签也是正例，FP表示模型将负例误判为正例。精度数值越大，表明FP值越小，反映出模型预测结果中真正正例的占比更高，误检更少，预测的准确性更好。召回率(Recall)的定义如\ref{eq:recall}，TP同精度公式中的TP，FN表示模型漏掉的正例。召回率数值越大，代表FN值越小，说明模型对实际正例的捕捉能力更强，能够找到更多的正例样本。
 
@@ -114,6 +114,8 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 
 三个模型的混淆矩阵如\ref{fig:nmatrix}、\ref{fig:smatrix}、\ref{fig:mmatrix}所示。YOLOv11n对S07类别的检测效果较差，有33\%的错误预测情况。对S09类别有6\%的误判和6\%的漏检。对剩余标签的检测准确度都在94\%以上。YOLOv11s相较于YOLOv11n，对S07和S09两个标签的检测准确度有大幅提升，且对所有标签的检测精度都在94\%以上。YOLOv11m相较于YOLOv11n，对各类别的检测精度近似，没有大幅变化，且对所有标签的检测精度也都在94\%以上。
 
+综合上文对三个模型在检测精度、检测速度和混淆矩阵三个方面的对比，YOLOv11n模型检测精度最低，但是检测速度最快，推理过程计算量最小，适用于对实时性要求高的场景；YOLOv11s模型在检测精度、检测速度和计算复杂度方面取得了平衡，适用于对实时性和精度都有一定要求的场景；YOLOv11m模型检测精度最高，但检测速度最慢，计算复杂度最高，适用于对检测精度有极高要求的场景。
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{figs/chap04/n_confusion_matrix_normalized.png}
@@ -153,7 +155,7 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 
 分布损失：YOLOv11m和YOLOv11s的分类损失值收敛较快，YOLOv11n收敛相对较慢。训练结束时YOLOv11m的分布损失值最小，效果最好，YOLOv11s次之，YOLOv11n的值最大。
 
-精度：YOLOv11m收敛速度最快，最早到达较高水平并趋于平稳。YOLOv11n和YOLOv11s上升速度相对较慢。最终YOLOv11m的精度最高，其次是YOLOv11s，YOLOv11n的精度最低。这表明YOLOv11m对驾驶员id的预测更准确。
+精度：YOLOv11m收敛速度最快，最早到达较高水平并趋于平稳。YOLOv11n和YOLOv11s上升速度相对较慢。最终YOLOv11m达到的精度最高，其次是YOLOv11s，YOLOv11n的精度最低。这表明YOLOv11m对驾驶员id的预测更准确。
 
 召回率：YOLOv11m和YOLOv11s的收敛趋势近似，且都比YOLOv11n的收敛速度要快。YOLOv11m和YOLOv11s最终的召回率相近，都比YOLOv11n的召回率要高。说明YOLOv11m和YOLOv11n能找到更多的正例驾驶员id目标。
 
@@ -201,6 +203,11 @@ mAP50-95：YOLOv11m的mAP50-95值收敛速度最快，其次是YOLOv11s，YOLOv1
         \bottomrule
     \end{tabular}
 \end{table}
+
+综合上述对比结果，YOLOv11n在检测驾驶员id场景下检测精度较低，但是检测速度最快，计算复杂度最低，适合对精度要求不是很高的实时检测场景；YOLOv11s的检测精度和速度更加平衡，适合对精度和速度都有一定要求的场景；YOLOv11m的检测精度最高，但是检测速度较慢，计算量最大，适合对检测精度有非常高要求的场景。
+
+\section{本章小结}
+本章首先介绍了目标检测模型检测精度和检测速度的几个重要评价指标，然后对本文进行的两个模型训练结果进行展示，对YOLOv11n、YOLOv11s和YOLOv11m三个模型的检测精度与检测速度进行了对比分析。最后得出结论，YOLOv11n模型的检测精度低但速度快，适用于实时检测场景；YOLOv11s模型的精度与速度平衡，适用于对两者均有要求的场景；YOLOv11m的检测精度高但速度慢，但速度较慢，适用于对精度要求高的场景。
 
 % \subsection{YOLOv11n}
 % 本文基于YOLOv11n训练了300个epoch，训练结果如\ref{fig:nresult}所示。从实验结果可知，模型的最高精度为96.7\%，最高召回率为96.6\%，mAP50为99.0\%，mAP50-95为94.1\%。
@@ -272,189 +279,3 @@ mAP50-95：YOLOv11m的mAP50-95值收敛速度最快，其次是YOLOv11s，YOLOv1
 
 % 根据分析可知，YOLOv11n在速度上具有明显优势，适用于对实时性要求较高的场景。YOLOv11s 在精度和速度之间取得了较好的平衡，属于一个适中的模型。YOLOv11m牺牲了一定的检测速度，换来了更高的精度，适合对检测精度要求极高的场景。
 
-
-\section{本章小结}
-本章首先介绍了目标检测模型检测精度和检测速度的几个重要评价指标，然后对本文进行的两个模型训练结果进行展示，对YOLOv11n、YOLOv11s和YOLOv11m三个模型的检测精度与检测速度进行了对比分析。
-% % 本文件是示例论文的一部分
-% % 论文的主文件位于上级目录的 `main.tex`
-% \chapter{参考文献}
-
-% 为了规范我校学位论文写作，我校学位论文的参考文献采用采用
-% \enquote{著者-出版年}制进行文献的引用与著录。
-
-% \section{正文中参考文献的引用}
-% \subsection{著者作为引用主语}
-% 文中提及著者，在被引用的著者姓名或外国著者姓氏之后用圆括号标注文献出版年，
-% 可使用\cs{textcite}、\cs{yearcite}命令或手动模式引用文献，如：
-
-% \begin{center}
-%   \begin{minipage}{0.45\textwidth}
-%     \small
-%     \verb|\textcite{赵耀东1998--}|指出...
-
-%     赵耀东\verb|\yearcite{赵耀东1998--}|指出...
-
-%     赵耀东\verb|(\cite*{赵耀东1998--})|指出...
-
-%     赵耀东\verb|(\citeyear{赵耀东1998--})|指出...
-%   \end{minipage}
-%   \begin{boxedminipage}{0.45\textwidth}
-%     \small
-%     \textcite{赵耀东1998--}指出...
-
-%     赵耀东\yearcite{赵耀东1998--}指出...
-
-%     赵耀东(\cite*{赵耀东1998--})指出...
-
-%     赵耀东(\citeyear{赵耀东1998--})指出...
-%   \end{boxedminipage}
-% \end{center}
-
-% \note{手动模式使用\cs{cite*}或\cs{citeyear}命令时，需要在两端加上小括号。}
-
-% \subsection{提及内容未提及著者}
-
-% 文中只提及所引用的资料内容而未提及著者，则在引文叙述文字之后用圆括号标注著
-% 者姓名或外国著者姓氏和出版年份，在著者和年份之间空一格，此时可以使用
-% \cs{cite}命令引用文献，如：
-
-% \begin{center}
-%   \begin{minipage}{0.45\textwidth}
-%     \small
-%     孟德尔发现了一个很重要的现象，即红、白花豌豆杂交后的所结种子
-%       第二年长出的植株的红白花比例为3:1\verb|\cite{fzx1962}|。%
-%   \end{minipage}
-%   \begin{boxedminipage}{0.45\textwidth}
-%     \small
-%     孟德尔发现了一个很重要的现象，即红、白花豌豆杂交后的所结种子
-%       第二年长出的植株的红白花比例为3:1\cite{fzx1962}。%
-%   \end{boxedminipage}
-% \end{center}
-
-% \subsection{同一著者不同年份出版多篇文献}
-% 引用同一著者不同年份出版的多篇文献时，后者只注出版年；引用同一著者在同一年
-% 份出版的多篇文献时，无论正文还是文末，年份之后用英文小写字母 a、b、c 等加
-% 以区别。按年份递增顺序排列,不同文献之间用逗号隔开。此时可以使用\cs{cite}命
-% 令引用文献，如：
-
-% \begin{center}
-%   \begin{minipage}{0.45\textwidth}
-%     \small
-%     UML基础和Rose建模教程中给出了大量案例及案例分析\verb|\cite{蔡敏2006a--,蔡敏2006b--}|。%
-%   \end{minipage}
-%   \begin{boxedminipage}{0.45\textwidth}
-%     \small
-%     UML基础和Rose建模教程中给出了大量案例及案例分析\cite{蔡敏2006a--,蔡敏2006b--}。%
-%   \end{boxedminipage}
-% \end{center}
-
-% \subsection{两著者文献}
-
-% 引用两个著者的文献时,两个著者之间加\enquote{和}(中文)或\enquote{and}(英文)。
-% 此时可以使用\cs{cite}命令引用文献，如：
-
-% \begin{center}
-%   \begin{minipage}{0.45\textwidth}
-%     \small
-%     利用基于Matlab的计算机仿真\verb|\cite{郭文彬2006--}|，研究了UWB和窄带通讯中
-%       的信号共存特性\verb|\cite{Chiani2009-231-254}|。%
-%   \end{minipage}
-%   \begin{boxedminipage}{0.45\textwidth}
-%     \small
-%     利用基于Matlab的计算机仿真\cite{郭文彬2006--}，研究了UWB和窄带通讯中
-%       的信号共存特性\cite{Chiani2009-231-254}。%
-%   \end{boxedminipage}
-% \end{center}
-
-% \subsection{三个以上著者文献}
-
-% 引用三个以上著者时，只标注第一著者姓名，其后加\enquote{等}(中文)或
-% \enquote{et al.}(英文)。此时可以使用\cs{cite}命令引用文献，如：
-
-% \begin{center}
-%   \begin{minipage}{0.45\textwidth}
-%     \small
-%     UML基础和Rose建模教程中详细说明了其基本方法和技巧\verb|\cite{蔡敏2006--}|。
-
-%     你不好好学点\LaTeX{}基本命令还真不行\verb|\cite{r9}|。%
-%   \end{minipage}
-%   \begin{boxedminipage}{0.45\textwidth}
-%     \small
-%     UML基础和Rose建模教程中详细说明了其基本方法和技巧\cite{蔡敏2006--}。
-
-%     你不好好学点\LaTeX{}基本命令还真不行\cite{r9}。%
-%   \end{boxedminipage}
-% \end{center}
-
-% \subsection{同一处引用多篇文献}
-
-% 同一处引用多篇文献时，按著者字母顺序排列，不同著者文献之间用分号隔开。
-% 此时可以使用\cs{cite}命令引用文献，注意用逗号分开\texttt{citeKey}就好，如：
-
-% \begin{center}
-%   \begin{minipage}{0.45\textwidth}
-%     \small
-%     同时引用多个文献\verb|\cite{r2,r3,r4,r6}|。%
-%   \end{minipage}
-%   \begin{boxedminipage}{0.45\textwidth}
-%     \small
-%     同时引用多个文献\cite{r2,r3,r4,r6}。%
-%   \end{boxedminipage}
-% \end{center}
-
-% \subsection{多次引用同一著者的同一文献}
-
-% 多次引用同一著者的同一文献,在正文中标注著者与出版年, 并在\enquote{()}内以
-% 以冒号形式标注引文页码。此时可以使用\cs{parencite}命令引用文献，注意用可选
-% 参数指定引用页码，如：
-
-% \begin{center}
-%   \begin{minipage}{0.45\textwidth}
-%     \small
-%     在文献\verb|\parencite[20-22]{n21}|说了一， 在文献\verb|\parencite[55-60]{n21}|说了二。%
-%   \end{minipage}
-%   \begin{boxedminipage}{0.45\textwidth}
-%     \small
-%     在文献\parencite[20-22]{n21}说了一， 在文献\parencite[55-60]{n21}说了二。%
-%   \end{boxedminipage}
-% \end{center}
-
-% \note{关于著者-出版年样式命令的详细说明可参见胡振震\enquote{符合 GB/T
-%   7714-2015 标准的 biblatex 参考文献样式}说明中的例12。}
-
-% \section{参考文献列表}
-
-% 参考文献列表的输出只需要使用命令\cs{printbibliography}进行输出即可，如：
-
-% % 排版参考文献表
-% % \printbibliography%
-
-% \section{参考文献数据文件准备}
-
-% \LaTeX 文档中生成参考文献一般都需要准备一个参考文献数据源文件即\enquote{*.bib}
-% 文件。这一文件内保存有各条参考文献的信息，具体可以参考biblatex宏包手册和
-% biblatex-gb7714-2015样式包手册\cite{胡振震2019}中关于域信息录入的说明。
-
-% 参考文献源文件本质上只是一个文本文件，只是其内容需要遵守BibTeX格式，参考文
-% 献源文件可以有多种生成方式，具体可参考\LaTeX{}文档中文参考文献的biblatex 
-% 解决方案\parencite[2.2节]{胡振震2016}。
-
-% 本模板采用由胡振震维护的
-% \enquote{符合 GB/T 7714-2015 标准的 biblatex 参考文献样式}实现参考文献的编
-% 排\cite{胡振震2019}，其Github链接为
-% \url{https://github.com/hushidong/biblatex-gb7714-2015}。
-% 大家也可以通过\TeX~Live的 \verb|texdoc gb7714-2015|命令查看其使用说明。
-
-% 关于著者-出版年样式命令的详细说明可参见胡振震\enquote{符合 GB/T7714-2015 
-% 标准的 biblatex 参考文献样式}说明中的中的相关内容
-% \parencite[2.2、2.3节]{胡振震2016}。
-
-% \section{交叉引用}
-% \note{与图、表、公式、定理等一样，请使用专用命令引用并输出参考文献，以实现
-% 参考文献的\emph{自动化}处理，\emph{万万不可}手动编写参考文献}！
-
-
-% %%% Local Variables: 
-% %%% mode: latex
-% %%% TeX-master: "../main.tex"
-% %%% End:
