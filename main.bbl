@@ -789,7 +789,7 @@
       \field{dateera}{ce}
       \keyw{alexNet}
     \endentry
-    \entry{yolov6}{online}{}
+    \entry{yolov6}{report}{}
       \name{author}{5}{}{%
         {{hash=a0bbae2f64caa5d7441f6179fcdee42d}{%
            family={Li},
@@ -868,25 +868,16 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{entrysubtype}{report}
-      \field{eprinttype}{GitHub}
       \field{langid}{english}
       \field{languageid}{english}
       \field{lansortorder}{4}
-      \field{note}{工业级部署优化，提出EfficientRep和Rep-PAN结构}
       \field{title}{{YOLOv6}: A Single-Stage Object Detection Framework for Industrial Applications}
       \field{usera}{R}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2022}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://github.com/meituan/YOLOv6
-      \endverb
-      \verb{url}
-      \verb https://github.com/meituan/YOLOv6
-      \endverb
-      \keyw{yolov6,report}
+      \keyw{yolov6}
     \endentry
     \entry{ex2}{article}{}
       \name{author}{6}{}{%
@@ -1450,28 +1441,16 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.CV}
-      \field{eprinttype}{arXiv}
-      \field{journaltitle}{arXiv preprint arXiv:2207.02696}
+      \field{journaltitle}{arXiv:2207.02696}
       \field{langid}{english}
       \field{languageid}{english}
       \field{lansortorder}{4}
-      \field{note}{首个引入可训练BoF策略的YOLO模型}
       \field{title}{{YOLOv7}: Trainable Bag-of-Freebies Sets New State-of-the-Art for Real-Time Object Detectors}
       \field{usera}{J}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2022}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb 2207.02696
-      \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2207.02696
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2207.02696
-      \endverb
       \keyw{yolov7}
     \endentry
     \entry{yolov10}{article}{}
@@ -1529,7 +1508,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv:2405.xxxxx}
+      \field{journaltitle}{arXiv:2405.14458}
       \field{langid}{english}
       \field{languageid}{english}
       \field{lansortorder}{4}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.16)  11 MAY 2025 14:13
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.16)  21 MAY 2025 12:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2091,22 +2091,22 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular.otf(3)/m/n' will be
  (./contents/chap01.tex
 第1章
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular.otf(2)/m/n' will be
-(Font)              scaled to size 12.04628pt on input line 13.
+(Font)              scaled to size 12.04628pt on input line 8.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular.otf(2)/m/n' will be
-(Font)              scaled to size 9.03471pt on input line 13.
+(Font)              scaled to size 9.03471pt on input line 8.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular.otf(2)/m/n' will be
-(Font)              scaled to size 7.22777pt on input line 13.
+(Font)              scaled to size 7.22777pt on input line 8.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 12.0437pt on input line 13.
+(Font)              scaled to size 12.0437pt on input line 8.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 9.03278pt on input line 13.
+(Font)              scaled to size 9.03278pt on input line 8.
 LaTeX Font Info:    Font shape `TU/XITSMath-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 7.22623pt on input line 13.
+(Font)              scaled to size 7.22623pt on input line 8.
 File: figs/chap01/traffic.jpg Graphic file (type bmp)
 <figs/chap01/traffic.jpg>
 
 LaTeX Font Warning: Font shape `TU/SimHei(0)/b/n' undefined
-(Font)              using `TU/SimHei(0)/m/n' instead on input line 24.
+(Font)              using `TU/SimHei(0)/m/n' instead on input line 19.
 
 File: figs/chap01/his.png Graphic file (type bmp)
 <figs/chap01/his.png>
@@ -2118,12 +2118,15 @@ Underfull \vbox (badness 1199) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (1.3701pt too wide) in paragraph at lines 45--46
+Overfull \hbox (1.3701pt too wide) in paragraph at lines 40--41
 []\TU/TimesNewRoman(0)/m/n/12.045 DPM(Deformable Part Models) \TU/SimSun(0)/m/n/12.045 在 目 标 检 测 领 域 具 有 重 要 地 位，|  该 模 型 最 早 由 \TU/TimesNewRoman(0)/m/n/12.045 P. Felzen-
  []
 
-[2]
-Underfull \vbox (badness 3826) has occurred while \output is active []
+
+Underfull \vbox (badness 3907) has occurred while \output is active []
+
+ [2]
+Underfull \vbox (badness 7256) has occurred while \output is active []
 
  [3] [4] [5]
 File: figs/chap01/source.jpg Graphic file (type bmp)
@@ -2145,12 +2148,15 @@ File: figs/chap02/yolov11.png Graphic file (type bmp)
 ]
 File: figs/chap02/c2f.png Graphic file (type bmp)
 <figs/chap02/c2f.png>
- [9]
 File: figs/chap02/sppf.png Graphic file (type bmp)
 <figs/chap02/sppf.png>
+ [9]
 File: figs/chap02/c2psa.png Graphic file (type bmp)
 <figs/chap02/c2psa.png>
- [10] [11]) [12]
+ [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11]) [12]
 \openout2 = `contents/chap03.aux'.
 
  (./contents/chap03.tex
@@ -2180,32 +2186,82 @@ File: figs/chap03/label1.png Graphic file (type bmp)
 
  (./contents/chap04.tex
 第4章
+File: figs/chap04/helmet_result/helmet_train_box_loss.png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_train_box_loss.png>
+File: figs/chap04/helmet_result/helmet_train_cls_loss.png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_train_cls_loss.png>
+File: figs/chap04/helmet_result/helmet_train_dfl_loss.png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_train_dfl_loss.png>
+File: figs/chap04/helmet_result/helmet_metrics_precision(B).png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_metrics_precision(B).png>
 
-Underfull \vbox (badness 5161) has occurred while \output is active []
+Underfull \vbox (badness 5175) has occurred while \output is active []
 
  [17
 
 
 
 
-]
-File: figs/chap04/helmetResult.png Graphic file (type bmp)
-<figs/chap04/helmetResult.png>
- [18] [19]
+] [18]
+File: figs/chap04/helmet_result/helmet_metrics_recall(B).png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_metrics_recall(B).png>
+File: figs/chap04/helmet_result/helmet_metrics_mAP50(B).png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_metrics_mAP50(B).png>
+File: figs/chap04/helmet_result/helmet_metrics_mAP50-95(B).png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_metrics_mAP50-95(B).png>
+File: figs/chap04/helmet_result/helmet_val_box_loss.png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_val_box_loss.png>
+File: figs/chap04/helmet_result/helmet_val_cls_loss.png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_val_cls_loss.png>
+File: figs/chap04/helmet_result/helmet_val_dfl_loss.png Graphic file (type bmp)
+<figs/chap04/helmet_result/helmet_val_dfl_loss.png>
+
+Overfull \vbox (39.02438pt too high) has occurred while \output is active []
+
+ [19] [20]
 File: figs/chap04/n_confusion_matrix_normalized.png Graphic file (type bmp)
 <figs/chap04/n_confusion_matrix_normalized.png>
+ [21]
+File: figs/chap04/s_confusion_matrix_normalized.png Graphic file (type bmp)
+<figs/chap04/s_confusion_matrix_normalized.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figs/chap04/m_confusion_matrix_normalized.png Graphic file (type bmp)
+<figs/chap04/m_confusion_matrix_normalized.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20]
-File: figs/chap04/s_confusion_matrix_normalized.png Graphic file (type bmp)
-<figs/chap04/s_confusion_matrix_normalized.png>
-File: figs/chap04/m_confusion_matrix_normalized.png Graphic file (type bmp)
-<figs/chap04/m_confusion_matrix_normalized.png>
- [21]
-File: figs/chap04/trackResult.png Graphic file (type bmp)
-<figs/chap04/trackResult.png>
- [22] [23]) [24]
+ [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23]
+File: figs/chap04/track_result/track_train_box_loss.png Graphic file (type bmp)
+<figs/chap04/track_result/track_train_box_loss.png>
+File: figs/chap04/track_result/track_train_cls_loss.png Graphic file (type bmp)
+<figs/chap04/track_result/track_train_cls_loss.png>
+File: figs/chap04/track_result/track_train_dfl_loss.png Graphic file (type bmp)
+<figs/chap04/track_result/track_train_dfl_loss.png>
+File: figs/chap04/track_result/track_metrics_precision(B).png Graphic file (type bmp)
+<figs/chap04/track_result/track_metrics_precision(B).png>
+ [24]
+File: figs/chap04/track_result/track_metrics_recall(B).png Graphic file (type bmp)
+<figs/chap04/track_result/track_metrics_recall(B).png>
+File: figs/chap04/track_result/track_metrics_mAP50(B).png Graphic file (type bmp)
+<figs/chap04/track_result/track_metrics_mAP50(B).png>
+File: figs/chap04/track_result/track_metrics_mAP50-95(B).png Graphic file (type bmp)
+<figs/chap04/track_result/track_metrics_mAP50-95(B).png>
+File: figs/chap04/track_result/track_val_box_loss.png Graphic file (type bmp)
+<figs/chap04/track_result/track_val_box_loss.png>
+File: figs/chap04/track_result/track_val_cls_loss.png Graphic file (type bmp)
+<figs/chap04/track_result/track_val_cls_loss.png>
+File: figs/chap04/track_result/track_val_dfl_loss.png Graphic file (type bmp)
+<figs/chap04/track_result/track_val_dfl_loss.png>
+
+Overfull \vbox (39.02438pt too high) has occurred while \output is active []
+
+ [25] [26]) [27]
 \openout2 = `contents/chap05.aux'.
 
  (./contents/chap05.tex
@@ -2215,7 +2271,7 @@ File: figs/chap05/struct.png Graphic file (type bmp)
 
 Underfull \vbox (badness 6316) has occurred while \output is active []
 
- [25
+ [28
 
 
 
@@ -2225,13 +2281,13 @@ File: figs/chap05/uml1.png Graphic file (type bmp)
 <figs/chap05/uml1.png>
 File: figs/chap05/seq1.png Graphic file (type bmp)
 <figs/chap05/seq1.png>
- [26]
+ [29]
 File: figs/chap05/detAll.png Graphic file (type bmp)
 <figs/chap05/detAll.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
+ [30]
 File: figs/chap05/uml2.png Graphic file (type bmp)
 <figs/chap05/uml2.png>
 File: figs/chap05/seq2.png Graphic file (type bmp)
@@ -2241,22 +2297,22 @@ File: figs/chap05/search.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
+ [31]
 File: figs/chap05/uml3.png Graphic file (type bmp)
 <figs/chap05/uml3.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29]
+ [32]
 File: figs/chap05/seq3.png Graphic file (type bmp)
 <figs/chap05/seq3.png>
- [30]
+ [33]
 File: figs/chap05/class1.png Graphic file (type bmp)
 <figs/chap05/class1.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
+ [34]
 File: figs/chap05/uml4.png Graphic file (type bmp)
 <figs/chap05/uml4.png>
 File: figs/chap05/seq4.png Graphic file (type bmp)
@@ -2270,57 +2326,26 @@ File: figs/chap05/class2.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [32] [33]
+) [35] [36]
 \openout2 = `contents/chap06.aux'.
 
  (./contents/chap06.tex
 第6章
-) [34
+[37
 
 
 
 
-] [35
+]) [38] [39
 
 
 
 
-]
-
-Package fontspec Info: Could not resolve font "FangSong/B" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "FangSong/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
-(fontspec)             with options
-(fontspec)             [Script={CJK},UprightFont={*},AutoFakeBold={4},ItalicFont={*}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=dflt;embolden=4;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
-
- [36] (./contents/chap08-ack.tex)
+] [40] (./contents/chap08-ack.tex)
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
- [37
+ [41
 
 
 
@@ -2334,18 +2359,18 @@ L3 programming layer <2020/04/10>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 63128CFA41E27FBC70DED99A588AAF8E;6132.
+(rerunfilecheck)             Checksum: 3AFCF00FBB9E53C0DE43A6A1B5E2FE60;6132.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54102 strings out of 474772
- 1168274 string characters out of 5757708
- 2352064 words of memory out of 5000000
- 75342 multiletter control sequences out of 15000+600000
- 565852 words of font info for 169 fonts, out of 8000000 for 9000
+ 54306 strings out of 474772
+ 1179667 string characters out of 5757708
+ 2354799 words of memory out of 5000000
+ 75536 multiletter control sequences out of 15000+600000
+ 565804 words of font info for 163 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,15n,114p,1225b,7230s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (47 pages).
+Output written on main.pdf (51 pages).

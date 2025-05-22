@@ -30,7 +30,7 @@
     \end{aligned}
 \end{equation}
 
-P-R曲线即为分别以Precision与Recall为坐标围成的曲线，平均精度(AP)通过计算各类别P-R曲线与坐标轴所围成区域的面积来衡量模型性能。从几何意义上讲，若模型的AP值越高，意味着其P-R曲线与坐标轴所围合的区域面积越大，直观反映出该模型在精度(Precision)与召回率(Recall)两个关键指标上的综合表现更好，在整体数据预测中能够同时实现较高的正例预测纯度与正例捕捉能力。平均精度均值(mAP)是对所有类别的AP求平均值，用于反映整个模型的准确率。在YOLO模型中，常见的mAP评价指标有mAP50和mAP50-95。mAP50为IoU阈值设为0.5时，所有类别的平均精度均值。mAP50-95为IoU阈值从0.5到0.95(间隔0.05递增)的多个严格标准下，分别计算mAP，再取平均值。
+作为评估模型性能的重要指标，平均精度(AP)采用P-R曲线与坐标轴围成区域的面积进行量化表征。从几何学视角分析，较高的AP值直观体现了模型在精度和召回率两个核心评价维度上的协同优化效果，表明其既能维持较高的正样本识别准确度，又具备较强的正样本覆盖能力。在综合评价体系方面，平均精度均值(mAP)通过对所有类别的AP计算结果求均值来表征模型的整体识别准确率。YOLO模型主要采用mAP50和mAP50-95两种指标：前者设定IoU阈值为0.5时计算各类别平均精度的平均值；后者则在IoU阈值0.5至0.95范围内进行多尺度评估，最终取各阈值下mAP结果的平均值作为综合性能指标。
 
 % \begin{figure}[!htb]
 %     \centering
@@ -40,35 +40,107 @@ P-R曲线即为分别以Precision与Recall为坐标围成的曲线，平均精�
 %   \end{figure}
 
 \subsection{速度评价指标}
-本文使用到的评价目标检测模型速度的指标有每秒帧率和FLOPs。每秒帧率(Frame Per Second，FPS)，即每秒内可以处理的图片数量，能够衡量模型的实时性，FPS越高，实时性越强。FLOPs表示浮点运算量，它衡量了模型在进行一次前向传播(推理)过程中所执行的浮点运算次数，FLOPs越低，理论速度越快，但并不直接等于实际速度。
+本文采用每秒帧率(FPS)与浮点运算量(FLOPs)作为目标检测模型速度性能的量化评估指标。其中，FPS指标反映了模型在单位时间内能够检测的图像帧数，其数值越高，意味着一秒内能执行更多的目标检测任务；而FLOPs则用于量化模型执行目标检测任务过程中所涉及的浮点运算次数，该指标能够有效表征模型的计算量，FLOPs越低，理论速度越快，但并不直接等于实际速度。
 
 \section{实验结果分析}
 \subsection{头盔佩戴情况模型}
-本文基于YOLOv11n、YOLOv11s和YOLOv11m三个模型，各训练了300个epoch，头盔佩戴情况模型训练结果如\ref{fig:helmetResult}所示。下面对边界框回归损失(box\_loss)、分类损失(cls\_loss)、分布损失(dfl\_loss)、精度(precision)、召回率(recall)、mAP50和mAP50-95这七个指标进行详细对比分析。
+本文基于YOLOv11n、YOLOv11s和YOLOv11m三个模型，各训练了300个epoch，头盔佩戴情况模型训练结果如\ref{fig:helmetResult_part1}和\ref{fig:helmetResult_part2}所示。下面对边界框回归损失、分类损失、分布损失、精度、召回率、mAP50和mAP50-95这七个指标进行详细对比分析。
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_train_box_loss.png}
+        \caption{训练集边界框回归损失}
+        \label{fig:helmet_train_box_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_train_cls_loss.png}
+        \caption{训练集分类损失}
+        \label{fig:helmet_train_cls_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_train_dfl_loss.png}
+        \caption{训练集分布损失}
+        \label{fig:helmet_train_dfl_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_metrics_precision(B).png}
+        \caption{精度}
+        \label{fig:helmet_metrics_precision}
+    \end{subfigure}
+    \caption{头盔佩戴情况模型训练结果（第一部分）}
+    \label{fig:helmetResult_part1}
+\end{figure}
+
+\newpage % 这里使用 \newpage 强制分页
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figs/chap04/helmetResult.png}
-    \caption{头盔佩戴情况模型训练结果}
-    \label{fig:helmetResult}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_metrics_recall(B).png}
+        \caption{召回率}
+        \label{fig:helmet_metrics_recall}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_metrics_mAP50(B).png}
+        \caption{mAP50}
+        \label{fig:helmet_metrics_mAP50}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_metrics_mAP50-95(B).png}
+        \caption{mAP50-95}
+        \label{fig:helmet_metrics_mAP50-95}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_val_box_loss.png}
+        \caption{验证集边界框回归损失}
+        \label{fig:helmet_val_box_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_val_cls_loss.png}
+        \caption{验证集分类损失}
+        \label{fig:helmet_val_cls_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/helmet_result/helmet_val_dfl_loss.png}
+        \caption{验证集分布损失}
+        \label{fig:helmet_val_dfl_loss}
+    \end{subfigure}
+    \caption{头盔佩戴情况模型训练结果（第二部分）}
+    \label{fig:helmetResult_part2}
 \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{figs/chap04/YoloMetrics_Combined.png}
+%     \caption{头盔佩戴情况模型训练结果}
+%     \label{fig:helmetResult}
+% \end{figure}
 
-边界框回归损失：三个模型的边界框回归损失值均随训练轮数的增加呈现下降趋势。YOLOv11n下降趋势相对较缓，YOLOv11s和YOLOv11m前期下降速度较快且相近，在训练进行大约50轮之后，YOLOv11m下降速度略快于YOLOv11s，说明YOLOv11m在边界框回归损失的收敛上最具优势。在训练后期，YOLOv11m的边界框回归损失最终值最低，YOLOv11s次之，YOLOv11n相对较高。这表明YOLOv11m在边界框定位的准确性上表现更好。
+边界框回归损失：三个模型的边界框回归损失值在训练过程中逐渐降低。YOLOv11n下降趋势相对较缓，YOLOv11s和YOLOv11m前期下降速度较快且相近，在训练进行大约50轮之后，YOLOv11m下降速度略快于YOLOv11s，说明YOLOv11m在边界框回归损失的收敛上最具优势。在训练后期，YOLOv11m的边界框回归损失最终值最低，YOLOv11s次之，YOLOv11n相对较高。这表明YOLOv11m在边界框定位的准确性上表现更好。
 
 分类损失：三个模型分类损失收敛趋势相似，均在前期快速下降，后期平稳下降。前期YOLOv11n下降稍快，YOLOv11s与YOLOv11m相近。中期YOLOv11s和YOLOv11m的下降速度与YOLOv11n相似，后期三者收敛速度相近。
 YOLOv11m最终的分类损失值最低，YOLOv11s和YOLOv11n相对较高且较为接近，意味着YOLOv11m在分类任务上的准确性更高。
 
 分布损失：YOLOv11s与YOLOv11m整体收敛趋势相似，前期都比YOLOv11n收敛速度略快，后期三者收敛速度近似。YOLOv11s与YOLOv11m达到的最优值近乎相同，且都比YOLOv11n的最优质更好。
 
-精度：三个模型精度均随训轮数增多呈上升趋势。YOLOv11s和YOLOv11m前期上升速度较快且相近，YOLOv11n稍慢；后期三者趋势相似。YOLOv11m达到的精度最优值最高，YOLOv11s次之，YOLOv11n相对较低，表明YOLOv11m在预测准确程度上表现更优。
+精度：三个模型精度均随训轮数增多逐渐变高。YOLOv11s和YOLOv11m前期上升速度较快且相近，YOLOv11n稍慢；后期三者趋势相似。YOLOv11m达到的精度最优值最高，YOLOv11s次之，YOLOv11n相对较低，表明YOLOv11m在预测准确程度上表现更优。
 
-召回率：YOLOv11s与YOLOv11m前期收敛趋势相同且均比YOLOv11n收敛速度快；后期三者都逐渐趋于平稳。YOLOv11m召回率最优值最高，YOLOv11s与之接近，YOLOv11n相对较低。说明YOLOv11m在捕捉正例样本能力上表现最好。
+召回率：YOLOv11s与YOLOv11m前期收敛趋势相同且均比YOLOv11n收敛速度快；后期三个模型的召回率收敛速度都逐渐趋于平稳。YOLOv11m召回率最优值最高，YOLOv11s与之接近，YOLOv11n相对较低。说明YOLOv11m在捕捉正例样本能力上表现最好。
 
-mAP50：YOLOv11s和YOLOv11m的mAP50值在训练前期上升迅速，YOLOv11n稍慢；中后期YOLOv11m率先趋于稳定，YOLOv11s次之。三个模型的mAP50最优值近似，意味着三者在IoU阈值为0.5时平均精度近似。
+mAP50：YOLOv11s和YOLOv11m的mAP50值在训练前期上升迅速，YOLOv11n稍慢；中后期YOLOv11m率先趋于稳定，YOLOv11s次之。最后三个模型得到的mAP50最优值近似。
 
 mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓慢；后期YOLOv11m收敛更平稳，更快达到较高精度水平。YOLOv11m的mAP50-95最优值最高，YOLOv11s与之相近，YOLOv11n较低。表明YOLOv11m与YOLOv11s在不同IoU阈值下平均精度综合表现都比较好。
 
-根据训练结果中的csv文件，能够得到各项指标在每一轮训练中的精确值，上述指标在训练过程中的最优值的对比如\ref{tab:modelCompare1}所示。从表格呈现的趋势来看，随着模型规模增大，三个损失函数的收敛速度更快，最终达到的损失值更低。其余四项指标，除检测精度外，召回率、mAP50和mAP50-95三项指标都随模型规模增大表现更优。
+根据训练结果中的csv文件，能够得到各项指标在每一轮训练中的精确值，上述指标在训练过程中的最优值的对比如\ref{tab:modelCompare1}所示。从表格呈现的趋势来看，随着模型规模增大，三个损失函数的收敛速度更快，最终达到的损失值更低。其余四项指标，除检测精度外都随模型规模增大表现更优。
 
 \begin{table}[htb]
     \centering
@@ -92,7 +164,7 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 \end{table}
 
 
-除了检测精度，模型的推理速度与计算复杂度同样是衡量性能的关键要素，\ref {tab:speedCompare1}对比了YOLOv11n、YOLOv11s和YOLOv11m三个版本基于实测数据的FPS与FLOPs数值。对于FPS指标，YOLOv11n的值最高，达到41.67，意味着该模型每秒能够处理41.67帧图像，实时性最强；YOLOv11s的FPS为36.63，仅次于YOLOv11n；YOLOv11m的FPS最低，为31.75。由此可见，随着模型规模增大(从n到m)，检测速度逐渐降低，因为更大的模型通常包含更多的参数和计算操作，需要更长的推理时间。对于FLOPs指标，YOLOv11m的FLOPs值最高，为68.26G，表明其完成一次前向推理所需的浮点运算次数最多，计算复杂度最高；YOLOv11s的FLOPs为21.59G；而YOLOv11n的 FLOPs最低，仅为6.4G。综合两项指标来看，YOLOv11模型的检测精度与计算速度呈现负相关性。YOLOv11n在检测精度上略逊于其他版本，但其计算复杂度低、检测速度快；而YOLOv11m推理速度较慢，但其在复杂场景下具有更高的检测精度。
+除了检测精度，模型的推理速度与计算复杂度同样是衡量性能的关键要素，\ref {tab:speedCompare1}对比了YOLOv11n、YOLOv11s和YOLOv11m三个版本基于实测数据的FPS与FLOPs数值。对于FPS指标，YOLOv11n的值最高，达到41.67，意味着该模型每秒能够处理41.67帧图像，实时性最强；YOLOv11s的FPS为36.63，仅次于YOLOv11n；YOLOv11m的FPS最低，为31.75。由此可见，随着模型规模增大(从n到m)，检测速度逐渐降低，因为更大的模型通常包含更多的参数和计算操作，需要更长的推理时间。对于FLOPs指标，YOLOv11m的FLOPs值最高，为68.26G，表明其完成一次前向推理所需的浮点运算次数最多，计算复杂度最高；YOLOv11s的FLOPs为21.59G；而YOLOv11n的 FLOPs最低，仅为6.4G。综合两项指标来看，YOLOv11模型的检测精度与计算速度呈现负相关性。YOLOv11n在检测精度上略逊于其他版本，但其计算复杂度低、检测速度快；而YOLOv11m推理速度较慢，计算量最大，但有更高的检测精度。
 
 \begin{table}[htb]
     \centering
@@ -114,7 +186,7 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 
 三个模型的混淆矩阵如\ref{fig:nmatrix}、\ref{fig:smatrix}、\ref{fig:mmatrix}所示。YOLOv11n对S07类别的检测效果较差，有33\%的错误预测情况。对S09类别有6\%的误判和6\%的漏检。对剩余标签的检测准确度都在94\%以上。YOLOv11s相较于YOLOv11n，对S07和S09两个标签的检测准确度有大幅提升，且对所有标签的检测精度都在94\%以上。YOLOv11m相较于YOLOv11n，对各类别的检测精度近似，没有大幅变化，且对所有标签的检测精度也都在94\%以上。
 
-综合上文对三个模型在检测精度、检测速度和混淆矩阵三个方面的对比，YOLOv11n模型检测精度最低，但是检测速度最快，推理过程计算量最小，适用于对实时性要求高的场景；YOLOv11s模型在检测精度、检测速度和计算复杂度方面取得了平衡，适用于对实时性和精度都有一定要求的场景；YOLOv11m模型检测精度最高，但检测速度最慢，计算复杂度最高，适用于对检测精度有极高要求的场景。
+综合上文对三个模型在检测精度、检测速度和混淆矩阵三个方面的对比，YOLOv11n模型优势是检测速度快，适用于实时检测场景；YOLOv11s模型在检测精度、检测速度和计算复杂度方面取得了平衡，适用于对实时性和精度都有一定要求的场景；YOLOv11m模型牺牲了一定的检测速度，并且资源开销巨大，但换来了更高的精度，能够更准确地识别驾乘人员的头盔佩戴情况。
 
 \begin{figure}[H]
     \centering
@@ -140,13 +212,86 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 \end{figure}
 
 \subsection{驾驶员id模型}
-本文基于YOLOv11n、YOLOv11s和YOLOv11m三个模型，各训练了300个epoch，驾驶员id模型训练结果如\ref{fig:trackResult}所示。下面同样对七个检测精度指标进行详细对比分析。
+本文基于YOLOv11n、YOLOv11s和YOLOv11m三个模型，各训练了300个epoch，驾驶员id模型训练结果如\ref{fig:trackResult_part1}和\ref{fig:trackResult_part2}所示。下面同样对七个检测精度指标进行详细对比分析。
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{figs/chap04/trackResult.png}
+%     \caption{驾驶员id模型}
+%     \label{fig:trackResult}
+% \end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_train_box_loss.png}
+        \caption{训练集边界框回归损失}
+        \label{fig:track_train_box_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_train_cls_loss.png}
+        \caption{训练集分类损失}
+        \label{fig:track_train_cls_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_train_dfl_loss.png}
+        \caption{训练集分布损失}
+        \label{fig:track_train_dfl_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_metrics_precision(B).png}
+        \caption{精度}
+        \label{fig:track_metrics_precision}
+    \end{subfigure}
+    \caption{驾驶员id模型训练结果（第一部分）}
+    \label{fig:trackResult_part1}
+\end{figure}
+
+\newpage % 这里使用 \newpage 强制分页
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figs/chap04/trackResult.png}
-    \caption{驾驶员id模型}
-    \label{fig:trackResult}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_metrics_recall(B).png}
+        \caption{召回率}
+        \label{fig:track_metrics_recall}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_metrics_mAP50(B).png}
+        \caption{mAP50}
+        \label{fig:track_metrics_mAP50}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_metrics_mAP50-95(B).png}
+        \caption{mAP50-95}
+        \label{fig:track_metrics_mAP50-95}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_val_box_loss.png}
+        \caption{验证集边界框回归损失}
+        \label{fig:track_val_box_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_val_cls_loss.png}
+        \caption{验证集分类损失}
+        \label{fig:track_val_cls_loss}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.43\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/chap04/track_result/track_val_dfl_loss.png}
+        \caption{验证集分布损失}
+        \label{fig:track_val_dfl_loss}
+    \end{subfigure}
+    \caption{驾驶员id模型训练结果（第二部分）}
+    \label{fig:trackResult_part2}
 \end{figure}
 
 边界框回归损失：YOLOv11s和YOLOv11m两个模型的边界框回归损失在前期下降速度相较于YOLOv11n略快，中期以后三者下降速度相近。YOLOv11m训练得到的边界框回归损失最优，数值最小，YOLOv11s次之，YOLOv11n相对较高。说明YOLOv11m模型预测驾驶员id的边界框更精确。
@@ -161,7 +306,7 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 
 mAP50：YOLOv11m和YOLOv11s的mAP50值收敛趋势比较相似，都比YOLOv11n的收敛速度要快。最终三个模型的mAP50值几乎相同。
 
-mAP50-95：YOLOv11m的mAP50-95值收敛速度最快，其次是YOLOv11s，YOLOv11n的收敛速度最慢。训练结束时，YOLOv11m的mAP50-95最高，效果最优；YOLOv11s次之；YOLOv11n相对较低。
+mAP50-95：YOLOv11m的mAP50-95值收敛速度最快，其次是YOLOv11s，YOLOv11n的收敛速度最慢。训练结束时，YOLOv11m达到了最高的mAP50-95值；YOLOv11s次之；YOLOv11n相对较低。
 
 将上述七个指标训练过程中的最优值进行对比如\ref{tab:modelCompare2}。三个损失函数(box\_loss、cls\_loss、dfl\_loss)随模型规模增大，最优值不断减小；四个精度指标(precision、recall、mAP50、mAP50-95)则随模型规模增大，最优值持续升高，模型检测精度随之提升。
 
@@ -204,10 +349,10 @@ mAP50-95：YOLOv11m的mAP50-95值收敛速度最快，其次是YOLOv11s，YOLOv1
     \end{tabular}
 \end{table}
 
-综合上述对比结果，YOLOv11n在检测驾驶员id场景下检测精度较低，但是检测速度最快，计算复杂度最低，适合对精度要求不是很高的实时检测场景；YOLOv11s的检测精度和速度更加平衡，适合对精度和速度都有一定要求的场景；YOLOv11m的检测精度最高，但是检测速度较慢，计算量最大，适合对检测精度有非常高要求的场景。
+综合上述对比结果，YOLOv11n在检测驾驶员id场景下检测精度较低，但是检测速度最快，计算复杂度最低，适合对精度要求不是很高的实时检测场景；YOLOv11s的检测精度和速度更加平衡，适合对精度和速度都有一定要求的场景；YOLOv11m有着最高的检测精度，但带来的资源开销更大，适合高精度检测场景。
 
 \section{本章小结}
-本章首先介绍了目标检测模型检测精度和检测速度的几个重要评价指标，然后对本文进行的两个模型训练结果进行展示，对YOLOv11n、YOLOv11s和YOLOv11m三个模型的检测精度与检测速度进行了对比分析。最后得出结论，YOLOv11n模型的检测精度低但速度快，适用于实时检测场景；YOLOv11s模型的精度与速度平衡，适用于对两者均有要求的场景；YOLOv11m的检测精度高但速度慢，但速度较慢，适用于对精度要求高的场景。
+本章首先介绍了目标检测模型检测精度和检测速度的几个重要评价指标，然后对本文进行的两个模型训练结果进行展示，对YOLOv11n、YOLOv11s和YOLOv11m三个模型的检测精度与检测速度进行了对比分析。YOLOv11系列不同规模的模型具有不同的性能特征与适用场景：YOLOv11n以牺牲部分检测精度为代价，换取了卓越的检测速度，特别适用于对实时性要求严苛的场景，如智能监控、自动驾驶的实时感知模块；YOLOv11s在检测精度与速度之间取得了良好的平衡，能够满足多数场景下对二者的综合需求，是通用目标检测任务的优选方案；YOLOv11m则有着更高的检测精度，尽管检测速度相对较慢，却在对精度要求极高的复杂场景中展现出显著优势，例如工业缺陷检测、医疗影像分析等对准确性要求苛刻的领域。
 
 % \subsection{YOLOv11n}
 % 本文基于YOLOv11n训练了300个epoch，训练结果如\ref{fig:nresult}所示。从实验结果可知，模型的最高精度为96.7\%，最高召回率为96.6\%，mAP50为99.0\%，mAP50-95为94.1\%。
