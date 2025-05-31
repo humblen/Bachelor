@@ -186,8 +186,6 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 
 三个模型的混淆矩阵如\ref{fig:nmatrix}、\ref{fig:smatrix}、\ref{fig:mmatrix}所示。YOLOv11n对S07类别的检测效果较差，有33\%的错误预测情况。对S09类别有6\%的误判和6\%的漏检。对剩余标签的检测准确度都在94\%以上。YOLOv11s相较于YOLOv11n，对S07和S09两个标签的检测准确度有大幅提升，且对所有标签的检测精度都在94\%以上。YOLOv11m相较于YOLOv11n，对各类别的检测精度近似，没有大幅变化，且对所有标签的检测精度也都在94\%以上。
 
-综合上文对三个模型在检测精度、检测速度和混淆矩阵三个方面的对比，YOLOv11n模型优势是检测速度快，适用于实时检测场景；YOLOv11s模型在检测精度、检测速度和计算复杂度方面取得了平衡，适用于对实时性和精度都有一定要求的场景；YOLOv11m模型牺牲了一定的检测速度，并且资源开销巨大，但换来了更高的精度，能够更准确地识别驾乘人员的头盔佩戴情况。
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{figs/chap04/n_confusion_matrix_normalized.png}
@@ -196,7 +194,7 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{figs/chap04/s_confusion_matrix_normalized.png}
     \caption{YOLOv11s混淆矩阵}
@@ -204,12 +202,14 @@ mAP50-95：YOLOv11s和YOLOv11m前期收敛速度快且相近，YOLOv11n比较缓
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.85\textwidth]{figs/chap04/m_confusion_matrix_normalized.png}
     \caption{YOLOv11m混淆矩阵}
     \label{fig:mmatrix}
 \end{figure}
+
+综合上文对三个模型在检测精度、检测速度和混淆矩阵三个方面的对比，YOLOv11n模型的FPS为41.67，FLOPs为6.4，检测速度最快且计算量最小；召回率为96.6\%，mAP50为99.0\%，mAP50-95为94.1\%，检测精度相对较差，其适用于实时检测场景；YOLOv11s模型的FPS为36.63\%，FLOPs为21.59\%；精度为96.2\%，召回率为97.2\%，mAP50为99.0\%，mAP50-95为95.4\%，其在检测精度、检测速度和计算复杂度方面取得了平衡，适用于对实时性和精度都有一定要求的场景；YOLOv11m模型的FPS为31.75\%，FLOPs为68.26\%，检测速度慢且计算量大；精度为97.3\%，召回率为98.1\%，mAP50为99.1\%，mAP50-95为95.5\%，其牺牲了一定的检测速度，换来了更高的精度，适用于对检测精度要求较高的场景。
 
 \subsection{驾驶员id模型}
 本文基于YOLOv11n、YOLOv11s和YOLOv11m三个模型，各训练了300个epoch，驾驶员id模型训练结果如\ref{fig:trackResult_part1}和\ref{fig:trackResult_part2}所示。下面同样对七个检测精度指标进行详细对比分析。
@@ -420,7 +420,7 @@ mAP50-95：YOLOv11m的mAP50-95值收敛速度最快，其次是YOLOv11s，YOLOv1
 
 % 三个模型的精度均在96\% 以上。其中，YOLOv11m的精度最高，为97.3\%。三个模型的召回率也都处于较高水平，都在96\%以上。YOLOv11m的召回率最高，为98.1\%。三个模型的mAP50值几乎一致，都在99\%附近，最大仅相差0.1\%，说明在IoU阈值为0.5时，它们对目标物体的检测效果都非常好。在mAP50-95指标上，YOLOv11m和YOLOv11s表现较好，分别为95.5\%和95.4\%，仅相差0.1\%，都要高于YOLOv11n的94.1\%，这表明在更严格的IoU阈值范围内，YOLOv11m和YOLOv11s 的性能更优。
 
-% 在检测速度方面，平均检测一张图片YOLOv11m耗时最长，为31.5ms，YOLOv11s为27.3ms，比YOLOv11m快了13.3\%。YOLOv11n最快，为24ms，比YOLOv11s快了12.1\%，比YOLOv11m快了23.8\%。
+% 在检测速度方面，平均检测一张图像YOLOv11m耗时最长，为31.5ms，YOLOv11s为27.3ms，比YOLOv11m快了13.3\%。YOLOv11n最快，为24ms，比YOLOv11s快了12.1\%，比YOLOv11m快了23.8\%。
 
 % 根据分析可知，YOLOv11n在速度上具有明显优势，适用于对实时性要求较高的场景。YOLOv11s 在精度和速度之间取得了较好的平衡，属于一个适中的模型。YOLOv11m牺牲了一定的检测速度，换来了更高的精度，适合对检测精度要求极高的场景。
 

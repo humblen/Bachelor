@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.16)  21 MAY 2025 12:38
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.16)  30 MAY 2025 23:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1809,7 +1809,7 @@ Package fontspec Info: Font family 'SimSun(0)' created for font 'SimSun' with
 (fontspec)             <->"SimSun/OT:script=hani;language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
-(./main.aux (./contents/chap01.aux) (./contents/chap02.aux) (./contents/chap03.aux) (./contents/chap04.aux) (./contents/chap05.aux) (./contents/chap06.aux))
+(./main.aux (./contents/chap01.aux) (./contents/chap02.aux) (./contents/chap04.aux) (./contents/chap05.aux) (./contents/chap06.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
@@ -2122,10 +2122,7 @@ Overfull \hbox (1.3701pt too wide) in paragraph at lines 40--41
 []\TU/TimesNewRoman(0)/m/n/12.045 DPM(Deformable Part Models) \TU/SimSun(0)/m/n/12.045 在 目 标 检 测 领 域 具 有 重 要 地 位，|  该 模 型 最 早 由 \TU/TimesNewRoman(0)/m/n/12.045 P. Felzen-
  []
 
-
-Underfull \vbox (badness 3907) has occurred while \output is active []
-
- [2]
+[2]
 Underfull \vbox (badness 7256) has occurred while \output is active []
 
  [3] [4] [5]
@@ -2148,19 +2145,12 @@ File: figs/chap02/yolov11.png Graphic file (type bmp)
 ]
 File: figs/chap02/c2f.png Graphic file (type bmp)
 <figs/chap02/c2f.png>
+ [9]
 File: figs/chap02/sppf.png Graphic file (type bmp)
 <figs/chap02/sppf.png>
- [9]
 File: figs/chap02/c2psa.png Graphic file (type bmp)
 <figs/chap02/c2psa.png>
- [10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11]) [12]
-\openout2 = `contents/chap03.aux'.
-
- (./contents/chap03.tex
-第3章
+ [10] [11] [12]
 File: figs/chap03/rb_origin.jpg Graphic file (type bmp)
 <figs/chap03/rb_origin.jpg>
 File: figs/chap03/rc_origin.jpg Graphic file (type bmp)
@@ -2173,19 +2163,17 @@ File: figs/chap03/sn_origin.jpg Graphic file (type bmp)
 <figs/chap03/sn_origin.jpg>
 File: figs/chap03/pn_origin.jpg Graphic file (type bmp)
 <figs/chap03/pn_origin.jpg>
-[13
-
-
-
-
-]
+ [13]
 File: figs/chap03/label1.png Graphic file (type bmp)
 <figs/chap03/label1.png>
- [14] [15]) [16]
+ [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]) [16]
 \openout2 = `contents/chap04.aux'.
 
  (./contents/chap04.tex
-第4章
+第3章
 File: figs/chap04/helmet_result/helmet_train_box_loss.png Graphic file (type bmp)
 <figs/chap04/helmet_result/helmet_train_box_loss.png>
 File: figs/chap04/helmet_result/helmet_train_cls_loss.png Graphic file (type bmp)
@@ -2221,22 +2209,15 @@ Overfull \vbox (39.02438pt too high) has occurred while \output is active []
  [19] [20]
 File: figs/chap04/n_confusion_matrix_normalized.png Graphic file (type bmp)
 <figs/chap04/n_confusion_matrix_normalized.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [21]
 File: figs/chap04/s_confusion_matrix_normalized.png Graphic file (type bmp)
 <figs/chap04/s_confusion_matrix_normalized.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: figs/chap04/m_confusion_matrix_normalized.png Graphic file (type bmp)
 <figs/chap04/m_confusion_matrix_normalized.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [22]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23]
 File: figs/chap04/track_result/track_train_box_loss.png Graphic file (type bmp)
 <figs/chap04/track_result/track_train_box_loss.png>
 File: figs/chap04/track_result/track_train_cls_loss.png Graphic file (type bmp)
@@ -2245,7 +2226,10 @@ File: figs/chap04/track_result/track_train_dfl_loss.png Graphic file (type bmp)
 <figs/chap04/track_result/track_train_dfl_loss.png>
 File: figs/chap04/track_result/track_metrics_precision(B).png Graphic file (type bmp)
 <figs/chap04/track_result/track_metrics_precision(B).png>
- [24]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23] [24]
 File: figs/chap04/track_result/track_metrics_recall(B).png Graphic file (type bmp)
 <figs/chap04/track_result/track_metrics_recall(B).png>
 File: figs/chap04/track_result/track_metrics_mAP50(B).png Graphic file (type bmp)
@@ -2265,7 +2249,7 @@ Overfull \vbox (39.02438pt too high) has occurred while \output is active []
 \openout2 = `contents/chap05.aux'.
 
  (./contents/chap05.tex
-第5章
+第4章
 File: figs/chap05/struct.png Graphic file (type bmp)
 <figs/chap05/struct.png>
 
@@ -2330,7 +2314,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 \openout2 = `contents/chap06.aux'.
 
  (./contents/chap06.tex
-第6章
+第5章
 [37
 
 
@@ -2349,7 +2333,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-] (./main.aux (./contents/chap01.aux) (./contents/chap02.aux) (./contents/chap03.aux) (./contents/chap04.aux) (./contents/chap05.aux) (./contents/chap06.aux))
+] (./main.aux (./contents/chap01.aux) (./contents/chap02.aux) (./contents/chap04.aux) (./contents/chap05.aux) (./contents/chap06.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/04/10>
@@ -2359,16 +2343,16 @@ L3 programming layer <2020/04/10>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3AFCF00FBB9E53C0DE43A6A1B5E2FE60;6132.
+(rerunfilecheck)             Checksum: 27DF3E61CB0A889CD0B442BA0FDE34F7;5918.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54306 strings out of 474772
- 1179667 string characters out of 5757708
- 2354799 words of memory out of 5000000
- 75536 multiletter control sequences out of 15000+600000
+ 54281 strings out of 474772
+ 1178929 string characters out of 5757708
+ 2351265 words of memory out of 5000000
+ 75518 multiletter control sequences out of 15000+600000
  565804 words of font info for 163 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,15n,114p,1225b,7230s stack positions out of 10000i,1000n,20000p,200000b,200000s
